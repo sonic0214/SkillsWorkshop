@@ -1,0 +1,52 @@
+translation:
+  enabled: false
+  service: "google_free"
+  target_language: "zh-CN"
+
+storage:
+  output_file: "/Users/admin/KnowledgeSystem/60-69 兴趣·爱好/61 咨询/61.01 AI信息流/articles.json"
+  database: "/Users/admin/KnowledgeSystem/60-69 兴趣·爱好/61 咨询/61.01 AI信息流/articles.db"
+  max_articles_per_source: 100
+
+schedule:
+  daily_time: "08:00"
+  test_mode: false
+  test_interval_minutes: 5
+
+sources:
+  - name: "TLDR AI"
+    type: "api"
+    url: "https://tldr.tech/api/latest/ai"
+    frequency: "daily"
+    category: "AI技术与资讯"
+    
+  - name: "Interconnects"
+    type: "rss"
+    url: "https://interconnects.ai/feed"
+    frequency: "daily"
+    category: "AI技术与资讯"
+    
+  - name: "One Useful Thing"
+    type: "rss"
+    url: "https://www.oneusefulthing.org/feed"
+    frequency: "daily"
+    category: "AI技术与资讯"
+    
+  - name: "Hacker News"
+    type: "api"
+    url: "https://hacker-news.firebaseio.com/v0/topstories.json"
+    frequency: "daily"
+    category: "聚合平台"
+    max_items: 8
+    
+  - name: "Wait But Why"
+    type: "rss"
+    url: "https://waitbutwhy.com/feed"
+    frequency: "weekly"
+    category: "思考与写作"
+    
+  - name: "Paul Graham Essays"
+    type: "web"
+    url: "https://paulgraham.com/articles.html"
+    frequency: "weekly"
+    category: "思考与写作"

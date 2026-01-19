@@ -1,0 +1,81 @@
+# VibeKit 架构配置文件
+# 用于检测架构违规：跨层调用、反向依赖等
+
+architecture:
+  type: layered  # 分层架构
+
+  # 定义架构层（从上到下）
+  layers:
+    # API 层 - 路由、控制器
+    - name: api
+      level: 4  # 最上层
+      description: "API 层 - 路由和控制器"
+      patterns:
+        - "api"
+        - "api/**"
+        - "**/routes/**"
+        - "**/controllers/**"
+
+    # 服务层 - 业务逻辑
+    - name: service
+      level: 3
+      description: "业务逻辑层"
+      patterns:
+        - "service"
+        - "service/**"
+        - "**/services/**"
+
+    # 数据访问层 - Repository/Model
+    - name: repository
+      level: 2
+      description: "数据访问层"
+      patterns:
+        - "repository"
+        - "repository/**"
+        - "**/repositories/**"
+        - "**/models/**"
+        - "user"  # 示例：user 模块属于 repository 层
+        - "order"
+        - "payment"
+
+    # 数据库层 - 连接、查询
+    - name: database
+      level: 1  # 最底层
+      description: "数据库层"
+      patterns:
+        - "database"
+        - "database/**"
+        - "**/db/**"
+        - "**/connection.py"
+
+  # 架构规则
+  rules:
+    # 只能依赖同层或下层
+    - type: layer_dependency
+      description: "上层可以依赖下层，下层不能依赖上层"
+
+    # 禁止跨层调用
+    - type: no_skip_layer
+      description: "不能跨层调用（如 API 直接访问 DB）"
+      allow_skip: false  # 严格模式
+
+# 忽略的目录/模块
+ignore:
+  - tests
+  - test
+  - migrations
+  - __pycache__
+  - .git
+  - venv
+  - env
+
+# 说明：
+# 1. level 数字越大，层级越高
+# 2. patterns 支持：
+#    - 完全匹配：api, database
+#    - 目录匹配：api/**, database/**
+#    - 包含匹配：**/services/**, **/models/**
+#    - 文件匹配：**/connection.py
+# 3. 架构违规检测：
+#    - 跨层调用：api → database (跳过 service, repository)
+#    - 反向依赖：database → api (底层依赖上层)

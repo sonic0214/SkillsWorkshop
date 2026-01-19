@@ -1,0 +1,32 @@
+translation:
+  enabled: true
+  target_language: "zh-CN"
+
+storage:
+  output_file: "/Users/admin/KnowledgeSystem/60-69 兴趣·爱好/61 咨询/61.01 AI信息流/articles.json"
+  database: "/Users/admin/KnowledgeSystem/60-69 兴趣·爱好/61 咨询/61.01 AI信息流/articles.db"
+
+schedule:
+  daily_time: "08:00"
+  test_mode: false
+
+sources:
+  - {name: "One Useful Thing", type: "rss", url: "https://www.oneusefulthing.org/feed", category: "AI技术与资讯"}
+  - {name: "AI Leadership Edge", type: "rss", url: "https://theaileadershipedge.substack.com/feed", category: "AI技术与资讯"}
+  - {name: "ChinAI Newsletter", type: "rss", url: "https://chinai.substack.com/feed", category: "AI技术与资讯"}
+  - {name: "Memia", type: "rss", url: "https://memia.substack.com/feed", category: "AI技术与资讯"}
+  - {name: "AI to ROI", type: "rss", url: "https://ai2roi.substack.com/feed", category: "AI技术与资讯"}
+  - {name: "Nate's Newsletter", type: "rss", url: "https://natesnewsletter.substack.com/feed", category: "AI技术与资讯"}
+  - {name: "AI Changes Everything", type: "rss", url: "https://patmcguinness.substack.com/feed", category: "AI技术与资讯"}
+  - {name: "Lex Fridman Podcast", type: "rss", url: "https://lexfridman.com/feed/podcast", category: "播客"}
+  - {name: "Latent Space Podcast", type: "rss", url: "https://latent.space/feed", category: "播客"}
+  - {name: "Hacker News", type: "api", url: "https://hacker-news.firebaseio.com/v0/topstories.json", category: "聚合平台", max_items: 8}
+  - {name: "HackerNoon Writing", type: "rss", url: "https://hackernoon.com/tagged/writing/feed", category: "聚合平台"}
+  - {name: "HackerNoon Product Management", type: "rss", url: "https://hackernoon.com/tagged/product-management/feed", category: "聚合平台"}
+  - {name: "Wait But Why", type: "rss", url: "https://waitbutwhy.com/feed", category: "思考与写作"}
+  - {name: "Farnam Street Brain Food", type: "rss", url: "https://fs.blog/feed", category: "思考与写作"}
+  - {name: "Austin Kleon", type: "rss", url: "https://austinkleon.substack.com/feed", category: "思考与写作"}
+  - {name: "Paul Graham Essays", type: "web", url: "https://paulgraham.com/articles.html", category: "思考与写作"}
+  - {name: "Scott H Young", type: "rss", url: "https://scotthyoung.com/blog/feed", category: "思考与写作"}
+  - {name: "DC The Median", type: "rss", url: "https://dcthemedian.substack.com/feed", category: "其他专业内容"}
+  - {name: "Mark McNeilly", type: "rss", url: "https://markmcneilly.substack.com/feed", category: "其他专业内容"}

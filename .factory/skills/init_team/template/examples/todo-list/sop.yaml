@@ -1,0 +1,36 @@
+# Project SOP
+
+version: "1.0.0"
+
+phases:
+  - id: specify
+    name: Requirements
+    agent_mode: pm_mode
+    checkpoint_on_complete: true
+
+  - id: clarify
+    name: Clarification
+    agent_mode: pm_mode
+
+  - id: plan
+    name: Architecture
+    agent_mode: architect_mode
+    skills_to_call:
+      - skills/build_main_index.py
+    checkpoint_on_complete: true
+
+  - id: implement
+    name: Implementation
+    agent_mode: dev_mode
+    skills_to_call:
+      - skills/run_tdd_cycle.py
+
+  - id: test
+    name: Testing
+    agent_mode: qa_mode
+    checkpoint_on_complete: true
+
+  - id: release
+    name: Release
+    agent_mode: architect_mode
+    checkpoint_on_complete: true

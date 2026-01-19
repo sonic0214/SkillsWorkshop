@@ -1,0 +1,24 @@
+translation:
+  enabled: false
+
+storage:
+  output_file: "/Users/admin/KnowledgeSystem/60-69 兴趣·爱好/61 咨询/61.01 AI信息流/articles_test.json"
+  database: "/Users/admin/KnowledgeSystem/60-69 兴趣·爱好/61 咨询/61.01 AI信息流/articles_test.db"
+
+schedule:
+  daily_time: "08:00"
+  test_mode: false
+
+sources:
+  - name: "Hacker News"
+    type: "api"
+    url: "https://hacker-news.firebaseio.com/v0/topstories.json"
+    frequency: "daily"
+    category: "聚合平台"
+    max_items: 5
+    
+  - name: "Wait But Why"
+    type: "rss"
+    url: "https://waitbutwhy.com/feed"
+    frequency: "weekly"
+    category: "思考与写作"

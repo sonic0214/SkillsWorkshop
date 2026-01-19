@@ -1,0 +1,420 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+---
+
+# 项目团队系统 - 双代理架构启动指南
+
+## 系统架构
+
+本项目采用**双代理架构**：
+
+```
+Project Team System
+├── Supervisor Agent (监工) - 监督流程执行，记录项目状态
+└── Project Agent (执行者) - 4 种角色模式，负责具体开发
+    ├── PM Mode (产品经理模式)
+    ├── Architect Mode (架构师模式)
+    ├── Dev Mode (开发者模式)
+    └── QA Mode (测试工程师模式)
+```
+
+**你的身份取决于你被分配的角色**：
+- 如果你是 **Supervisor**，参考 `project_team/agents/supervisor.md`
+- 如果你是 **Project Agent**，参考 `project_team/agents/project_agent.md`
+
+---
+
+## 启动流程（每次会话必做）
+
+### 1. 确认你的角色
+
+**如果你是 Supervisor Agent**：
+1. 读取 `project_team/agents/supervisor.md`
+2. 读取 `.project_state.json` 检查项目状态
+3. 运行断点恢复：`python project_team/skills/recovery.py . --mode=ask`
+4. 根据恢复报告询问用户如何继续
+
+**如果你是 Project Agent**：
+1. 读取 `project_team/agents/project_agent.md`
+2. 读取 `project_team/agents/roles/<current_mode>.md`（当前角色的详细定义）
+3. 询问 Supervisor 当前项目状态
+4. 根据 Supervisor 指示继续工作
+
+---
+
+### 2. Supervisor 启动检查清单
+
+**Phase 恢复检查**：
+```bash
+# 运行断点恢复工具
+python project_team/skills/recovery.py . --mode=ask
+
+# 工具会返回：
+# - 当前 Phase 和进度
+# - 上次完成的任务
+# - 下一个待执行任务
+# - 文档完整性验证
+# - Git 状态检查
+# - 恢复建议
+```
+
+**询问用户**：
+```
+🔄 检测到项目进行到 [Phase X]，进度 [Y%]
+
+上次完成: [任务描述]
+下一个任务: [任务描述]
+
+请选择恢复方式：
+1. 继续上次的工作（从任务 #X 开始）
+2. 回滚到检查点（重新开始当前 Phase）
+3. 验证状态后继续（先检查文档和代码完整性）
+4. 其他（请说明）
+```
+
+**Supervisor 职责**：
+- ✅ 监督流程执行（不做技术决策）
+- ✅ 记录项目状态到 `.project_state.json`
+- ✅ Phase 切换时运行 Phase Gate Validator
+- ✅ 断点恢复时帮助 Project Agent 恢复上下文
+- ❌ 不写代码，不做架构设计
+
+---
+
+### 3. Project Agent 启动检查清单
+
+**询问 Supervisor**：
+```
+Supervisor，我是 Project Agent，刚刚接手项目。
+请告诉我：
+1. 当前项目在哪个 Phase？
+2. 我应该切换到哪个角色模式（PM/Architect/Dev/QA）？
+3. 下一个任务是什么？
+4. 有哪些关键文件需要我关注？
+```
+
+**根据 Supervisor 指示工作**：
+- Supervisor 会提供上下文指针（architecture.md, progress_track.md 等）
+- 按需读取文件，避免上下文爆炸
+- 完成任务后通知 Supervisor 更新状态
+
+---
+
+## Phase Gate 验证机制（强制）
+
+每次 Phase 切换前，**Supervisor 必须运行 Phase Gate Validator**：
+
+```bash
+# 验证从 Phase X 切换到 Phase Y 的前置条件
+python project_team/skills/validate_phase_gate.py . <from_phase> <to_phase>
+
+# 示例：验证 Specify → Plan 切换
+python project_team/skills/validate_phase_gate.py . specify plan
+```
+
+**验证内容**：
+- ✅ 必需文档是否存在
+- ✅ 文档字数是否达标
+- ✅ 自定义检查（如用户故事数量、架构图存在性）
+- ✅ Git 提交状态
+
+**验证失败处理**：
+- 🛑 **拒绝进入下一阶段**
+- 📝 **记录违规到 `.project_state.json`**
+- 🔔 **通知 Project Agent 和用户**
+
+---
+
+## 文档约束（不可违反）
+
+### Phase 1: Specify (PM Mode)
+
+**必需文档**：
+- `docs/01_specify/prd.md` - 产品需求文档（≥1000 字）
+- `docs/01_specify/user_stories.md` - 用户故事清单（≥10 个）
+
+**可选文档**：
+- `docs/01_specify/api_spec.md` - API 规范
+
+**工作流程**：
+```
+1. 分析 requirements.md
+2. 创建 PRD（产品需求文档）
+3. 编写用户故事（INVEST 原则）
+4. 定义 API 规范（如需要）
+5. 通知 Supervisor 完成，请求 Phase Gate 验证
+```
+
+**参考**：`project_team/agents/roles/pm_mode.md`
+
+---
+
+### Phase 2: Plan (Architect Mode)
+
+**必需文档**：
+- `docs/02_plan/architecture.md` - 技术架构设计（≥1500 字，包含架构图）
+- `docs/02_plan/module_design.md` - 模块设计方案
+
+**必需文件**：
+- `.context/main_index.json` - 主索引文件
+
+**工作流程**：
+```
+1. 构建主索引：python project_team/skills/build_main_index.py .
+2. 创建技术架构设计（系统架构、技术选型、数据模型、API 设计）
+3. 创建模块设计文档（模块职责、依赖关系、接口定义）
+4. 通知 Supervisor 完成，请求 Phase Gate 验证
+```
+
+**参考**：`project_team/agents/roles/architect_mode.md`
+
+---
+
+### Phase 3: Implement (Dev Mode)
+
+**必需文档**：
+- `docs/03_implement/task_breakdown.md` - 任务分解清单（≥20 个任务）
+- `docs/03_implement/progress_track.md` - 进度跟踪
+
+**必需约束**：
+- 代码覆盖率 ≥ 80%
+- 严格遵守 TDD 工作流
+
+**工作流程**：
+```
+1. 任务分解（从用户故事到开发任务）
+2. 每个模块开发前：python project_team/skills/build_module_index.py . <module>
+3. 每个任务执行 TDD：python project_team/skills/run_tdd_cycle.py . <task>
+4. 实时更新 progress_track.md
+5. 代码覆盖率达标后通知 Supervisor，请求 Phase Gate 验证
+```
+
+**参考**：`project_team/agents/roles/dev_mode.md`
+
+---
+
+### Phase 4: Test (QA Mode)
+
+**必需文档**：
+- `docs/04_test/test_plan.md` - 测试计划（≥2000 字）
+- `docs/04_test/test_cases.md` - 测试用例（≥100 个）
+- `docs/04_test/quality_report.md` - 质量报告
+
+**必需约束**：
+- 测试通过率 ≥ 95%
+- P0/P1 Bug = 0
+
+**工作流程**：
+```
+1. 创建测试计划（测试策略、测试类型、排期）
+2. 编写测试用例（功能测试、边界测试、场景测试）
+3. 执行完整测试：pytest tests/ --cov
+4. 创建质量报告（测试总结、Bug 统计、发布建议）
+5. 通过率达标后通知 Supervisor，请求 Phase Gate 验证
+```
+
+**参考**：`project_team/agents/roles/qa_mode.md`
+
+---
+
+### Phase 5: Release (Architect Mode)
+
+**必需文档**：
+- `docs/05_release/release_notes.md` - 发布说明（≥800 字）
+- `docs/05_release/deployment.md` - 部署文档
+
+**必需约束**：
+- P0/P1 Bug = 0
+
+**工作流程**：
+```
+1. 创建发布说明（版本信息、新增功能、Bug 修复、已知问题）
+2. 创建部署文档（环境要求、部署步骤、回滚方案）
+3. 代码审查和文档审查
+4. 通知 Supervisor 完成，请求 Phase Gate 验证
+```
+
+**参考**：`project_team/agents/roles/architect_mode.md`
+
+---
+
+## 双代理协作协议
+
+### Protocol 1: Phase 切换请求/批准
+
+**Project Agent → Supervisor**:
+```
+Supervisor，我已完成 Phase [X] 的所有任务。
+请验证 Phase Gate 并批准切换到 Phase [Y]。
+
+关键文档：
+- [文档列表]
+
+关键指标：
+- [指标列表]
+```
+
+**Supervisor 响应**:
+```bash
+# 运行验证
+python project_team/skills/validate_phase_gate.py . <from> <to>
+
+# 验证通过
+✅ Phase Gate 验证通过，批准切换到 Phase [Y]。
+请切换到 [角色] 模式继续。
+
+# 验证失败
+❌ Phase Gate 验证失败：
+- 缺少文档: [...]
+- 指标不达标: [...]
+请修复后重试。
+```
+
+---
+
+### Protocol 2: 断点恢复请求/报告
+
+**新 Project Agent → Supervisor**:
+```
+Supervisor，我是新接手的 Project Agent。
+请告诉我当前项目状态和下一步任务。
+```
+
+**Supervisor 响应**:
+```bash
+# 运行恢复工具
+python project_team/skills/recovery.py . --mode=ask
+
+# 提供恢复报告
+🔄 项目进行到 Phase [X]，进度 [Y%]
+上次完成: [任务]
+下一个任务: [任务]
+
+请阅读以下关键文件：
+- [文件列表]
+
+建议：[继续 / 回滚 / 验证后继续]
+```
+
+---
+
+### Protocol 3: 文档验证请求/结果
+
+**Project Agent → Supervisor**:
+```
+Supervisor，我已创建 [文档名称]。
+请验证文档完整性。
+```
+
+**Supervisor 响应**:
+```
+✅ 文档验证通过
+❌ 文档不完整：[缺失内容]
+```
+
+---
+
+## 角色切换指引
+
+**当前 Phase** → **建议角色**：
+
+| Phase | 角色 | 文档参考 |
+|-------|------|----------|
+| Specify | PM Mode | `project_team/agents/roles/pm_mode.md` |
+| Plan | Architect Mode | `project_team/agents/roles/architect_mode.md` |
+| Implement | Dev Mode | `project_team/agents/roles/dev_mode.md` |
+| Test | QA Mode | `project_team/agents/roles/qa_mode.md` |
+| Release | Architect Mode | `project_team/agents/roles/architect_mode.md` |
+
+**角色切换方式**：
+- 阅读对应的角色定义文件（`roles/<mode>.md`）
+- 按照角色的工作流程执行任务
+- 遵守角色的最佳实践和文档模板
+
+---
+
+## Skill 工具使用
+
+### 索引构建
+```bash
+# 构建主索引（Architect 使用）
+python project_team/skills/build_main_index.py .
+
+# 构建模块索引（Dev 使用）
+python project_team/skills/build_module_index.py . <module_name>
+
+# 搜索模块内容
+python project_team/skills/search_in_module.py . <module_name> <keyword>
+```
+
+### 开发工作流
+```bash
+# TDD 工作循环
+python project_team/skills/run_tdd_cycle.py . <task_name>
+
+# 生成测试模板
+python project_team/skills/generate_test_template.py . <module> <function>
+```
+
+### 状态管理
+```bash
+# 保存检查点
+python project_team/skills/checkpoint.py save . <checkpoint_name>
+
+# 恢复检查点
+python project_team/skills/checkpoint.py restore . <checkpoint_name>
+
+# 断点恢复
+python project_team/skills/recovery.py . --mode=ask
+python project_team/skills/recovery.py . --mode=auto
+```
+
+### 验证
+```bash
+# Phase Gate 验证
+python project_team/skills/validate_phase_gate.py . <from_phase> <to_phase>
+```
+
+---
+
+## 核心原则
+
+### 1. 流程强制执行
+- Phase Gate 验证不通过，不能进入下一阶段
+- 文档不全，拒绝继续开发
+- 测试不通过，拒绝发布
+
+### 2. 双代理协作
+- Supervisor 监督，Project Agent 执行
+- 明确的请求/响应协议
+- 断点恢复能力
+
+### 3. 文档驱动
+- 所有设计和开发基于文档
+- 文档作为上下文传递的指针
+- 文档作为项目记忆
+
+### 4. 测试先行
+- 严格遵守 TDD 工作流
+- 代码覆盖率 ≥ 80%
+- 测试通过率 ≥ 95%
+
+---
+
+## 质量标准
+
+- **需求驱动**：所有开发基于明确的用户需求
+- **流程遵守**：5 Phase 流程不可跳过
+- **文档完整**：每个 Phase 的文档必须达标
+- **测试保证**：TDD 工作流 + 高覆盖率
+- **持续验证**：Phase Gate 强制验证
+
+---
+
+**详细的工作流程和最佳实践，请参考：**
+- Supervisor 定义 → `project_team/agents/supervisor.md`
+- Project Agent 定义 → `project_team/agents/project_agent.md`
+- 角色模式定义 → `project_team/agents/roles/*.md`
+- 系统架构说明 → `README.md`

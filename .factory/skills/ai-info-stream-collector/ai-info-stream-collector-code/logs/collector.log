@@ -1,0 +1,295 @@
+2026-01-19 12:56:59,636 - INFO - ============================================================
+2026-01-19 12:56:59,636 - INFO - Starting collection at 2026-01-19 12:56:59.636672
+2026-01-19 12:56:59,670 - INFO - Starting collection from 35 sources
+2026-01-19 12:56:59,672 - INFO - Fetching RSS feed: Interconnects - https://interconnects.ai/feed
+2026-01-19 12:57:00,777 - INFO - Scraped 10 from Hugging Face Papers
+2026-01-19 12:57:00,779 - INFO - Fetching RSS feed: One Useful Thing - https://www.oneusefulthing.org/feed
+2026-01-19 12:57:00,995 - INFO - Scraped 0 from NLP Newsletter
+2026-01-19 12:57:00,997 - INFO - Fetching RSS feed: Why Try AI - https://whytryai.com/feed
+2026-01-19 12:57:01,302 - INFO - Scraped 0 from Ben's Bites
+2026-01-19 12:57:01,304 - INFO - Fetching RSS feed: The Rundown AI - https://rss.beehiiv.com/feeds/the-rundown-ai.xml
+2026-01-19 12:57:01,464 - ERROR - Error scraping TLDR AI: Expecting value: line 1 column 1 (char 0)
+2026-01-19 12:57:01,465 - INFO - Fetching RSS feed: The Neuron Daily - https://rss.beehiiv.com/feeds/the-neuron.xml
+2026-01-19 12:57:02,254 - INFO - Successfully scraped 20 articles from One Useful Thing
+2026-01-19 12:57:02,254 - INFO - Fetching RSS feed: AI Leadership Edge - https://theaileadershipedge.substack.com/feed
+2026-01-19 12:57:02,690 - INFO - Successfully scraped 0 articles from The Rundown AI
+2026-01-19 12:57:02,690 - INFO - Fetching RSS feed: ChinAI Newsletter - https://chinai.substack.com/feed
+2026-01-19 12:57:03,379 - INFO - Successfully scraped 0 articles from The Neuron Daily
+2026-01-19 12:57:03,391 - INFO - Fetching RSS feed: Memia - https://memia.substack.com/feed
+2026-01-19 12:57:03,477 - INFO - Successfully scraped 20 articles from Why Try AI
+2026-01-19 12:57:03,478 - INFO - Fetching RSS feed: AI to ROI - https://ai2roi.substack.com/feed
+2026-01-19 12:57:03,842 - INFO - Successfully scraped 20 articles from ChinAI Newsletter
+2026-01-19 12:57:03,849 - INFO - Fetching RSS feed: Nate's Newsletter - https://natesnewsletter.substack.com/feed
+2026-01-19 12:57:03,883 - INFO - Successfully scraped 20 articles from AI Leadership Edge
+2026-01-19 12:57:03,883 - INFO - Fetching RSS feed: AI Changes Everything - https://patmcguinness.substack.com/feed
+2026-01-19 12:57:04,127 - WARNING - RSS feed parsing warning for Interconnects: text/html; charset=utf-8 is not an XML media type
+2026-01-19 12:57:04,127 - INFO - Successfully scraped 0 articles from Interconnects
+2026-01-19 12:57:04,944 - INFO - Successfully scraped 20 articles from Nate's Newsletter
+2026-01-19 12:57:04,945 - INFO - Fetching RSS feed: Lex Fridman Podcast - https://lexfridman.com/feed/podcast
+2026-01-19 12:57:05,429 - INFO - Successfully scraped 20 articles from AI Changes Everything
+2026-01-19 12:57:05,436 - INFO - Fetching RSS feed: Cognitive Revolution - https://feeds.megaphone.fm/cognitive-revolution
+2026-01-19 12:57:06,037 - INFO - Scraped 0 from KDnuggets AI
+2026-01-19 12:57:06,045 - INFO - Fetching RSS feed: 80,000 Hours Podcast - https://feeds.transistor.fm/80000-hours
+2026-01-19 12:57:06,479 - INFO - Successfully scraped 20 articles from Memia
+2026-01-19 12:57:06,491 - INFO - Fetching RSS feed: Latent Space Podcast - https://latent.space/feed
+2026-01-19 12:57:07,481 - INFO - Successfully scraped 0 articles from Cognitive Revolution
+2026-01-19 12:57:07,515 - WARNING - RSS feed parsing warning for 80,000 Hours Podcast: <unknown>:2:0: syntax error
+2026-01-19 12:57:07,515 - INFO - Successfully scraped 0 articles from 80,000 Hours Podcast
+2026-01-19 12:57:08,644 - INFO - Scraped 0 from Product Hunt
+2026-01-19 12:57:08,645 - INFO - Fetching RSS feed: HackerNoon Life Hacking - https://hackernoon.com/tagged/life-hacking/feed
+2026-01-19 12:57:09,011 - INFO - Successfully scraped 20 articles from AI to ROI
+2026-01-19 12:57:09,019 - INFO - Fetching RSS feed: HackerNoon Writing - https://hackernoon.com/tagged/writing/feed
+2026-01-19 12:57:10,181 - INFO - Successfully scraped 20 articles from HackerNoon Writing
+2026-01-19 12:57:10,187 - INFO - Fetching RSS feed: HackerNoon Product Management - https://hackernoon.com/tagged/product-management/feed
+2026-01-19 12:57:10,540 - INFO - Successfully scraped 0 articles from HackerNoon Life Hacking
+2026-01-19 12:57:10,540 - INFO - Fetching RSS feed: Wait But Why - https://waitbutwhy.com/feed
+2026-01-19 12:57:11,365 - INFO - Successfully scraped 20 articles from HackerNoon Product Management
+2026-01-19 12:57:11,799 - INFO - Successfully scraped 20 articles from Latent Space Podcast
+2026-01-19 12:57:11,812 - INFO - Fetching RSS feed: Farnam Street Brain Food - https://fs.blog/feed
+2026-01-19 12:57:12,403 - INFO - Successfully scraped 10 articles from Wait But Why
+2026-01-19 12:57:12,415 - INFO - Fetching RSS feed: Austin Kleon - https://austinkleon.substack.com/feed
+2026-01-19 12:57:13,187 - INFO - Successfully scraped 20 articles from Lex Fridman Podcast
+2026-01-19 12:57:13,593 - INFO - Scraped 0 from James Clear 3-2-1
+2026-01-19 12:57:13,596 - INFO - Fetching RSS feed: Scott H Young - https://scotthyoung.com/blog/feed
+2026-01-19 12:57:13,885 - INFO - Successfully scraped 20 articles from Farnam Street Brain Food
+2026-01-19 12:57:14,337 - INFO - Successfully scraped 20 articles from Austin Kleon
+2026-01-19 12:57:15,349 - INFO - Scraped 0 from Dan Koe Letters
+2026-01-19 12:57:15,351 - INFO - Fetching RSS feed: DC The Median - https://dcthemedian.substack.com/feed
+2026-01-19 12:57:15,446 - INFO - Scraped 10 from Paul Graham Essays
+2026-01-19 12:57:15,447 - INFO - Fetching RSS feed: Mark McNeilly - https://markmcneilly.substack.com/feed
+2026-01-19 12:57:15,958 - INFO - Scraped 8 from Hacker News
+2026-01-19 12:57:16,572 - INFO - Successfully scraped 20 articles from DC The Median
+2026-01-19 12:57:20,931 - INFO - Scraped 0 from Readwise Wise
+2026-01-19 12:57:23,374 - INFO - Successfully scraped 20 articles from Mark McNeilly
+2026-01-19 12:57:24,765 - INFO - Successfully scraped 10 articles from Scott H Young
+2026-01-19 12:57:24,765 - INFO - Translating 368 articles
+2026-01-19 12:59:39,450 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=240%2B+AI+Tools+That+Defined+2025 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:00:46,682 - INFO - ============================================================
+2026-01-19 13:00:46,682 - INFO - Starting collection at 2026-01-19 13:00:46.682281
+2026-01-19 13:00:46,700 - INFO - Starting collection from 35 sources
+2026-01-19 13:00:46,701 - INFO - Fetching RSS feed: Interconnects - https://interconnects.ai/feed
+2026-01-19 13:00:47,478 - INFO - Scraped 0 from NLP Newsletter
+2026-01-19 13:00:47,480 - INFO - Fetching RSS feed: One Useful Thing - https://www.oneusefulthing.org/feed
+2026-01-19 13:00:47,640 - INFO - Scraped 10 from Hugging Face Papers
+2026-01-19 13:00:47,641 - INFO - Fetching RSS feed: Why Try AI - https://whytryai.com/feed
+2026-01-19 13:00:48,076 - INFO - Scraped 0 from Ben's Bites
+2026-01-19 13:00:48,080 - INFO - Fetching RSS feed: The Rundown AI - https://rss.beehiiv.com/feeds/the-rundown-ai.xml
+2026-01-19 13:00:48,242 - ERROR - Error scraping TLDR AI: Expecting value: line 1 column 1 (char 0)
+2026-01-19 13:00:48,267 - INFO - Fetching RSS feed: The Neuron Daily - https://rss.beehiiv.com/feeds/the-neuron.xml
+2026-01-19 13:00:48,504 - INFO - Successfully scraped 20 articles from One Useful Thing
+2026-01-19 13:00:48,504 - INFO - Fetching RSS feed: AI Leadership Edge - https://theaileadershipedge.substack.com/feed
+2026-01-19 13:00:49,229 - INFO - Successfully scraped 20 articles from AI Leadership Edge
+2026-01-19 13:00:49,229 - INFO - Fetching RSS feed: ChinAI Newsletter - https://chinai.substack.com/feed
+2026-01-19 13:00:49,391 - INFO - Successfully scraped 0 articles from The Rundown AI
+2026-01-19 13:00:49,391 - INFO - Fetching RSS feed: Memia - https://memia.substack.com/feed
+2026-01-19 13:00:49,514 - WARNING - RSS feed parsing warning for Why Try AI: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)>
+2026-01-19 13:00:49,514 - INFO - Successfully scraped 0 articles from Why Try AI
+2026-01-19 13:00:49,514 - INFO - Fetching RSS feed: AI to ROI - https://ai2roi.substack.com/feed
+2026-01-19 13:00:49,715 - INFO - Successfully scraped 0 articles from The Neuron Daily
+2026-01-19 13:00:49,715 - INFO - Fetching RSS feed: Nate's Newsletter - https://natesnewsletter.substack.com/feed
+2026-01-19 13:00:49,922 - INFO - Successfully scraped 20 articles from ChinAI Newsletter
+2026-01-19 13:00:49,922 - INFO - Fetching RSS feed: AI Changes Everything - https://patmcguinness.substack.com/feed
+2026-01-19 13:00:50,575 - INFO - Successfully scraped 20 articles from Nate's Newsletter
+2026-01-19 13:00:50,582 - WARNING - RSS feed parsing warning for Interconnects: text/html; charset=utf-8 is not an XML media type
+2026-01-19 13:00:50,582 - INFO - Successfully scraped 0 articles from Interconnects
+2026-01-19 13:00:50,582 - INFO - Fetching RSS feed: Lex Fridman Podcast - https://lexfridman.com/feed/podcast
+2026-01-19 13:00:50,819 - INFO - Successfully scraped 20 articles from Memia
+2026-01-19 13:00:50,820 - INFO - Fetching RSS feed: Cognitive Revolution - https://feeds.megaphone.fm/cognitive-revolution
+2026-01-19 13:00:51,372 - INFO - Successfully scraped 20 articles from AI Changes Everything
+2026-01-19 13:00:51,372 - INFO - Fetching RSS feed: 80,000 Hours Podcast - https://feeds.transistor.fm/80000-hours
+2026-01-19 13:00:51,916 - INFO - Successfully scraped 0 articles from Cognitive Revolution
+2026-01-19 13:00:51,916 - INFO - Fetching RSS feed: Latent Space Podcast - https://latent.space/feed
+2026-01-19 13:00:51,991 - INFO - Scraped 0 from KDnuggets AI
+2026-01-19 13:00:52,251 - INFO - Successfully scraped 20 articles from AI to ROI
+2026-01-19 13:00:52,581 - WARNING - RSS feed parsing warning for 80,000 Hours Podcast: <unknown>:2:0: syntax error
+2026-01-19 13:00:52,581 - INFO - Successfully scraped 0 articles from 80,000 Hours Podcast
+2026-01-19 13:00:52,581 - INFO - Fetching RSS feed: HackerNoon Life Hacking - https://hackernoon.com/tagged/life-hacking/feed
+2026-01-19 13:00:52,589 - INFO - Scraped 0 from Product Hunt
+2026-01-19 13:00:52,594 - INFO - Fetching RSS feed: HackerNoon Writing - https://hackernoon.com/tagged/writing/feed
+2026-01-19 13:00:53,312 - INFO - Successfully scraped 0 articles from HackerNoon Life Hacking
+2026-01-19 13:00:53,313 - INFO - Fetching RSS feed: HackerNoon Product Management - https://hackernoon.com/tagged/product-management/feed
+2026-01-19 13:00:53,612 - INFO - Successfully scraped 20 articles from HackerNoon Writing
+2026-01-19 13:00:53,618 - INFO - Fetching RSS feed: Wait But Why - https://waitbutwhy.com/feed
+2026-01-19 13:00:54,498 - INFO - Successfully scraped 20 articles from HackerNoon Product Management
+2026-01-19 13:00:55,077 - INFO - Successfully scraped 10 articles from Wait But Why
+2026-01-19 13:00:55,107 - INFO - Fetching RSS feed: Farnam Street Brain Food - https://fs.blog/feed
+2026-01-19 13:00:55,969 - INFO - Successfully scraped 20 articles from Latent Space Podcast
+2026-01-19 13:00:55,976 - INFO - Fetching RSS feed: Austin Kleon - https://austinkleon.substack.com/feed
+2026-01-19 13:00:56,397 - INFO - Scraped 0 from James Clear 3-2-1
+2026-01-19 13:00:56,926 - INFO - Successfully scraped 20 articles from Farnam Street Brain Food
+2026-01-19 13:00:56,938 - INFO - Fetching RSS feed: Scott H Young - https://scotthyoung.com/blog/feed
+2026-01-19 13:00:57,558 - INFO - Successfully scraped 20 articles from Austin Kleon
+2026-01-19 13:00:57,826 - INFO - Successfully scraped 20 articles from Lex Fridman Podcast
+2026-01-19 13:00:58,154 - INFO - Scraped 10 from Paul Graham Essays
+2026-01-19 13:00:58,155 - INFO - Fetching RSS feed: DC The Median - https://dcthemedian.substack.com/feed
+2026-01-19 13:00:58,638 - INFO - Scraped 0 from Dan Koe Letters
+2026-01-19 13:00:58,639 - INFO - Fetching RSS feed: Mark McNeilly - https://markmcneilly.substack.com/feed
+2026-01-19 13:00:59,274 - INFO - Successfully scraped 20 articles from DC The Median
+2026-01-19 13:00:59,666 - INFO - Scraped 8 from Hacker News
+2026-01-19 13:01:00,362 - INFO - Successfully scraped 20 articles from Mark McNeilly
+2026-01-19 13:01:03,001 - INFO - Scraped 0 from Readwise Wise
+2026-01-19 13:01:08,149 - INFO - Successfully scraped 10 articles from Scott H Young
+2026-01-19 13:01:08,149 - INFO - Translating 348 articles
+2026-01-19 13:02:17,675 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=Do+Leaders+have+a+duty+to+use+AI+in+decision+making%3F (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:02:38,724 - INFO - ============================================================
+2026-01-19 13:02:38,724 - INFO - Starting collection at 2026-01-19 13:02:38.724717
+2026-01-19 13:02:38,725 - ERROR - Collection failed: while parsing a block mapping
+  in "config.yaml", line 5, column 3
+expected <block end>, but found '<block mapping start>'
+  in "config.yaml", line 7, column 4
+Traceback (most recent call last):
+  File "/Users/admin/Project/ai-info-stream-collector-code/main.py", line 27, in run_collection
+    collector = ArticleCollector('config.yaml')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Project/ai-info-stream-collector-code/src/collector.py", line 13, in __init__
+    self.config = yaml.safe_load(f)
+                  ^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/parser.py", line 438, in parse_block_mapping_key
+    raise ParserError("while parsing a block mapping", self.marks[-1],
+yaml.parser.ParserError: while parsing a block mapping
+  in "config.yaml", line 5, column 3
+expected <block end>, but found '<block mapping start>'
+  in "config.yaml", line 7, column 4
+2026-01-19 13:02:44,378 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=AI+Week+in+Review+26.01.17 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:02:58,600 - INFO - ============================================================
+2026-01-19 13:02:58,600 - INFO - Starting collection at 2026-01-19 13:02:58.600902
+2026-01-19 13:02:58,601 - ERROR - Collection failed: while parsing a block mapping
+  in "config.yaml", line 5, column 2
+expected <block end>, but found '<block mapping start>'
+  in "config.yaml", line 7, column 3
+Traceback (most recent call last):
+  File "/Users/admin/Project/ai-info-stream-collector-code/main.py", line 27, in run_collection
+    collector = ArticleCollector('config.yaml')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Project/ai-info-stream-collector-code/src/collector.py", line 13, in __init__
+    self.config = yaml.safe_load(f)
+                  ^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/composer.py", line 127, in compose_mapping_node
+    while not self.check_event(MappingEndEvent):
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ^^^^^^^^^^^^
+  File "/Users/admin/.pyenv/versions/3.11.5/lib/python3.11/site-packages/yaml/parser.py", line 438, in parse_block_mapping_key
+    raise ParserError("while parsing a block mapping", self.marks[-1],
+yaml.parser.ParserError: while parsing a block mapping
+  in "config.yaml", line 5, column 2
+expected <block end>, but found '<block mapping start>'
+  in "config.yaml", line 7, column 3
+2026-01-19 13:03:18,809 - INFO - ============================================================
+2026-01-19 13:03:18,809 - INFO - Starting collection at 2026-01-19 13:03:18.809717
+2026-01-19 13:03:18,820 - INFO - Starting collection from 6 sources
+2026-01-19 13:03:18,820 - INFO - Fetching RSS feed: Interconnects - https://interconnects.ai/feed
+2026-01-19 13:03:18,822 - INFO - Fetching RSS feed: One Useful Thing - https://www.oneusefulthing.org/feed
+2026-01-19 13:03:18,823 - INFO - Fetching RSS feed: Wait But Why - https://waitbutwhy.com/feed
+2026-01-19 13:03:20,001 - INFO - Successfully scraped 10 articles from Wait But Why
+2026-01-19 13:03:20,004 - ERROR - Error scraping TLDR AI: Expecting value: line 1 column 1 (char 0)
+2026-01-19 13:03:20,551 - INFO - Successfully scraped 20 articles from One Useful Thing
+2026-01-19 13:03:21,692 - INFO - Scraped 10 from Paul Graham Essays
+2026-01-19 13:03:25,730 - WARNING - RSS feed parsing warning for Interconnects: text/html; charset=utf-8 is not an XML media type
+2026-01-19 13:03:25,731 - INFO - Successfully scraped 0 articles from Interconnects
+2026-01-19 13:03:25,960 - INFO - Scraped 8 from Hacker News
+2026-01-19 13:03:25,999 - INFO - Saved 48 new articles
+2026-01-19 13:03:26,000 - INFO - Complete: 48 new, 48 total
+2026-01-19 13:03:26,000 - INFO - Done: 48 new, 48 total
+2026-01-19 13:03:26,000 - INFO - ============================================================
+2026-01-19 13:05:14,703 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=Nemotron+3+Nano+and+Apriel-1.6-Thinker+Advance+Open+Local+AI (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:06:24,825 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=Why+the+future+belongs+to+those+who+think+deeply+%E2%80%94+not+those+who+write+prettily.+Read+All (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:06:48,913 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=A+premium+domain+is+not+just+a+domain+someone+is+reselling+at+a+higher+price.+There+are+technical%2C+economic%2C+and+product-level+implications+that+matter+more+than+most+founders+realize.+A+%241%2C000+domain+with+%2412+renewals+is+often+safer+than+a+%2450+domain.+Read+All (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:07:26,978 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=Why+Your+Product+Is+Scaling+Faster+Than+Your+Story+Can+Handle (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:07:49,900 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=In+case+you+missed+it...+The+post+The+Trump-Biden+Debate+appeared+first+on+Wait+But+Why+. (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:08:15,612 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=The+Tiny+Teams+Playbook (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:09:59,815 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=12+tips+for+a+great+family+movie+night (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:10:48,559 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=%23487+%E2%80%93+Irving+Finkel%3A+Deciphering+Secrets+of+Ancient+Civilizations+%26+Flood+Myths (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:10:52,682 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=%23486+%E2%80%93+Michael+Levin%3A+Hidden+Reality+of+Alien+Intelligence+%26+Biological+Life (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:12:05,799 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=Three+Scenarios+for+AI%27s+Economic+Impact+and+How+to+Prepare+for+Each (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:12:22,050 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=%E2%80%9COpenAI+is+going+to+eat+Microsoft+alive%2C%E2%80%9D+says+Elon+Musk. (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:12:23,968 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=Five+Myths+About+GenAI+in+the+Enterprise (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:12:24,297 - WARNING - Translation attempt 2 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=%E2%80%9COpenAI+is+going+to+eat+Microsoft+alive%2C%E2%80%9D+says+Elon+Musk. (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:12:38,510 - WARNING - Translation attempt 1 failed: HTTPSConnectionPool(host='translate.google.com', port=443): Max retries exceeded with url: /m?tl=zh-CN&sl=auto&q=A+Social+Filesystem (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1006)')))
+2026-01-19 13:13:40,570 - INFO - Saved 321 new articles
+2026-01-19 13:13:40,575 - ERROR - Collection failed: UNIQUE constraint failed: articles.id
+Traceback (most recent call last):
+  File "/Users/admin/Project/ai-info-stream-collector-code/main.py", line 28, in run_collection
+    new_count, stats = collector.collect_all()
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Project/ai-info-stream-collector-code/src/collector.py", line 48, in collect_all
+    new_count = self.storage.save_articles(all_articles)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/admin/Project/ai-info-stream-collector-code/src/storage.py", line 54, in save_articles
+    cursor.execute('''
+sqlite3.IntegrityError: UNIQUE constraint failed: articles.id
+2026-01-19 13:13:40,590 - INFO - Complete: 321 new, 369 total
+2026-01-19 13:13:40,595 - INFO - Done: 321 new, 369 total
+2026-01-19 13:13:40,595 - INFO - ============================================================
+2026-01-19 13:36:06,928 - INFO - ============================================================
+2026-01-19 13:36:06,929 - INFO - Starting collection at 2026-01-19 13:36:06.929068
+2026-01-19 13:36:06,935 - INFO - Starting collection from 6 sources
+2026-01-19 13:36:06,936 - INFO - Fetching RSS feed: Interconnects - https://interconnects.ai/feed
+2026-01-19 13:36:06,936 - INFO - Fetching RSS feed: One Useful Thing - https://www.oneusefulthing.org/feed
+2026-01-19 13:36:06,937 - INFO - Fetching RSS feed: Wait But Why - https://waitbutwhy.com/feed
+2026-01-19 13:36:07,989 - INFO - Successfully scraped 10 articles from Wait But Why
+2026-01-19 13:36:08,150 - INFO - Successfully scraped 20 articles from One Useful Thing
+2026-01-19 13:36:08,453 - ERROR - Error scraping TLDR AI: Expecting value: line 1 column 1 (char 0)
+2026-01-19 13:36:10,122 - INFO - Scraped 10 from Paul Graham Essays
+2026-01-19 13:36:13,923 - WARNING - RSS feed parsing warning for Interconnects: text/html; charset=utf-8 is not an XML media type
+2026-01-19 13:36:13,923 - INFO - Successfully scraped 0 articles from Interconnects
+2026-01-19 13:36:14,184 - INFO - Scraped 8 from Hacker News
+2026-01-19 13:36:14,199 - INFO - Saved 48 new articles
+2026-01-19 13:36:14,199 - INFO - Complete: 48 new, 48 total
+2026-01-19 13:36:14,200 - INFO - Done: 48 new, 48 total
+2026-01-19 13:36:14,200 - INFO - ============================================================

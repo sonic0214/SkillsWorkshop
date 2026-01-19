@@ -1,0 +1,716 @@
+# GOSPEL框架配置文件
+# Version: v1.0
+# Created: 2025-12-19
+
+# 研究与证据要求
+visualization_requirements:
+  tools:
+    - mermaid
+  charts:
+    - growth_loop: "增长飞轮图 (Graph)"
+    - user_flow: "关键路径时序图 (Sequence)"
+    - ecosystem_map: "生态结构图 (Mindmap/Graph)"
+  constraints:
+    - use_simple_syntax: true
+    - avoid_complex_styling: true
+
+research_requirements:
+  min_public_sources: 8
+  min_source_types: 5
+  required_source_types:
+    - 官网/产品页面
+    - 定价/支付页
+    - 文档/帮助中心
+    - 社交媒体/公告
+    - 工具目录/插件商店
+    - 用户评价/社区讨论
+    - 媒体报道/访谈
+    - 招聘/融资/团队背景
+  source_log_fields:
+    - 来源类型
+    - 链接
+    - 关键信息
+    - 影响模块
+    - 置信度
+    - 时间
+  evidence_policy:
+    - 不可只写“未披露”，需给“缺口 + 下一步证据获取路径”
+    - 每个结论至少对应 1 条可追溯来源或明确推断
+
+# 决策分析要求
+decision_analysis:
+  framework: "references/决策分析框架.md"
+  timeline:
+    min_events: 5
+    max_events: 10
+    required_fields:
+      - 时间/阶段
+      - 事件
+      - 当时瓶颈
+      - 关键决策
+      - 增长机制/因果链
+      - 预期指标变化
+      - 证据/推断
+  event_deep_dive_fields:
+    - 阶段
+    - 触发原因/当时瓶颈
+    - 关键增长决策
+    - 增长机制（因果链）
+    - 核心指标（NSM/inputs/漏斗关键率）
+    - 代价与风险
+    - 证据/推断与验证方式
+  decision_log_fields:
+    - 决策
+    - 所属阶段
+    - 解决的瓶颈
+    - 预期/实际指标变化
+    - 代价/风险
+    - 适用条件
+
+# 六大维度配置
+dimensions:
+  G:
+    name: "Growth（增长系统）"
+    name_cn: "增长系统"
+    priority: high
+    sub_dimensions:
+      - aarrr:
+          name: "AARRR全链路"
+          metrics:
+            - acquisition: "获客引擎、触发器/证据/路径、CAC、用户规模"
+            - activation: "TTV、Aha Moment、首次体验设计、激活率"
+            - retention: "留存率、留存曲线、资产/关系/工作流沉淀"
+            - revenue: "付费转化率、ARPU、LTV、计费逻辑"
+            - referral: "K因子、分享机制、传播触发条件"
+
+      - growth_flywheel:
+          name: "增长飞轮"
+          elements:
+            - 用户行为
+            - 数据/内容积累
+            - 体验优化/网络效应
+            - 价值增长
+            - 更多用户
+
+      - north_star_metric:
+          name: "北极星指标"
+          criteria:
+            - 代表用户价值
+            - 反映产品健康增长
+            - 团队可影响
+            - 易于测量
+            - 可拆解为输入指标
+
+      - plg_clg:
+          name: "PLG/CLG策略"
+          types:
+            - PLG: "产品驱动增长"
+            - CLG: "内容驱动增长"
+
+    data_sources:
+      automatic:
+        - 用户规模数据（WebSearch）
+        - 增长率报道（新闻）
+        - 行业报告
+        - 社交媒体与公告（Twitter/公众号/博客）
+        - 工具目录与插件商店（Product Hunt/Chrome Web Store）
+        - 用户评价与社区讨论（Reddit/知乎/小红书）
+      ai_analysis:
+        - 增长飞轮逻辑推断
+        - 北极星指标推测
+        - AARRR环节分析
+      user_input:
+        - 真实留存率
+        - 内部增长指标
+        - CAC/LTV数据
+
+  E_COMMUNITY:
+    name: "Ecosystem (社区与生态)"
+    name_cn: "社区与生态"
+    priority: medium
+    sub_dimensions:
+      - community_activity:
+          name: "社区活跃度"
+          platforms:
+            - Discord/Slack
+            - Reddit/Twitter
+          metrics:
+            - active_members: "活跃成员数"
+            - discussion_depth: "讨论深度"
+            - response_time: "响应时间"
+      - ecosystem_richness:
+          name: "生态丰富度"
+          elements:
+            - plugins: "插件数量"
+            - templates: "模版数量"
+            - workflows: "工作流数量"
+          developer_economy: "开发者能否赚钱？"
+      - viral_content:
+          name: "二创传播力"
+          content_types:
+            - Prompt
+            - Generated Image/Video
+            - Workflow Screenshot
+          motivation: "炫耀/知识/互助/赚钱"
+
+  O:
+    name: "Opportunity（市场机会）"
+    name_cn: "市场机会"
+    priority: medium
+    sub_dimensions:
+      - market_size:
+          name: "市场容量"
+          metrics:
+            - TAM: "总市场规模"
+            - SAM: "可服务市场"
+            - SOM: "可获得市场"
+            - growth_rate: "市场增长率"
+
+      - competition:
+          name: "竞争格局（五梯队）"
+          tiers:
+            - tier1: "超级大厂（碾压级威胁）"
+            - tier2: "基础设施层（技术深度）"
+            - tier3: "垂直场景专家（深度专业）"
+            - tier4: "中国出海产品（成本优势）"
+            - tier5: "独立产品（用户体验）"
+
+      - timing:
+          name: "时间窗口"
+          questions:
+            - 为什么是现在？
+            - 窗口期有多长？
+            - 如何在窗口期内建立优势？
+
+      - trends:
+          name: "赛道趋势"
+          dimensions:
+            - 用户需求演变
+            - 技术发展趋势
+            - 竞争态势变化
+
+      - industry_positioning:
+          name: "行业位置分析"
+          aspects:
+            - current_position:
+                name: "当前市场位置"
+                metrics:
+                  - 市场份额
+                  - 定价相对位置（高端/中端/低端）
+                  - 功能丰富度排名
+                  - 用户规模排名
+            - competitive_moat:
+                name: "竞争护城河"
+                moat_types:
+                  - network_effects: "网络效应强度"
+                  - brand: "品牌认知度"
+                  - technology: "技术领先度"
+                  - data: "数据壁垒"
+                  - cost: "成本优势"
+                  - switching_cost: "切换成本"
+                strength_scoring:
+                  strong: "难以被复制（2年+）"
+                  moderate: "有一定壁垒（6-24月）"
+                  weak: "容易被复制（<6月）"
+            - strategic_moves:
+                name: "潜在战略动作预测"
+                scenarios:
+                  - 融资/并购可能性
+                  - 新市场扩张
+                  - 产品线延伸
+                  - 定价策略调整
+                  - 合作伙伴拓展
+
+    data_sources:
+      automatic:
+        - 行业报告（Gartner、IDC）
+        - 市场数据（Statista、CB Insights）
+        - 竞品信息（Crunchbase）
+        - 融资/团队背景（LinkedIn/招聘/投资新闻）
+      ai_analysis:
+        - 竞争格局判断
+        - 赛道趋势推断
+        - 时间窗口评估
+      user_input:
+        - 行业洞察
+        - 专家判断
+
+  C:
+    name: "Competitor（竞品分析）"
+    name_cn: "竞品分析"
+    priority: medium
+    sub_dimensions:
+      - competitor_selection:
+          name: "竞品选择与理由（Top 2-5）"
+          required:
+            - 竞品类型（直接对手/替代方案/潜在威胁）
+            - 选择理由与证据
+
+      - comparison_matrix:
+          name: "对比矩阵（表格）"
+          fields:
+            - 目标用户
+            - 核心价值主张
+            - 增长引擎
+            - 产品设计亮点
+            - 商业模式
+            - 战略定位
+            - 主要风险
+
+      - differentiation_summary:
+          name: "差异化总结（3-5条）"
+
+      - action_recommendations:
+          name: "行动建议（Top 3）"
+          required:
+            - 建议
+            - 验证方式
+
+    data_sources:
+      automatic:
+        - 竞品列表（官网/对比文章）
+        - 定价与功能页
+        - 竞品评测/榜单/目录
+        - 用户对比评价与社区反馈
+      ai_analysis:
+        - 竞品选择与差异化判断
+      user_input:
+        - 已知竞品
+        - 重点对比模块
+
+  S:
+    name: "Strategy（战略定位）"
+    name_cn: "战略定位"
+    priority: high
+    sub_dimensions:
+      - one_line_conclusion:
+          name: "一句话结论"
+          output: "战略价值：高/中/低 + 一句话理由"
+
+      - strategic_role:
+          name: "战略角色定位"
+          roles:
+            - 收入中心
+            - 增长钩子
+            - 留存容器
+            - ARPU增强器
+            - 生态入口
+            - 成本中心
+
+      - key_problem:
+          name: "核心问题（Key Problem）"
+          analysis:
+            - 需求强度（高/中/低）
+            - 需求频率（高/中/低）
+            - 支付能力（高/中/低）
+            - 替代方案与拒绝原因
+
+      - decision_mechanism:
+          name: "决策机制"
+          types:
+            - 理性ROI
+            - 情感爽感
+            - 身份认同
+            - 社交货币
+
+      - growth_engine:
+          name: "增长机制判断"
+          types:
+            - 渠道驱动
+            - 结构内置
+            - 混合
+          required:
+            - 因果链（A → B → C）
+            - 最大瓶颈（AARRR环节）
+
+      - retention_moat:
+          name: "留存与护城河形态"
+          types:
+            - 习惯（高频）
+            - 切换成本（资产沉淀）
+            - 网络效应（越用越强）
+          required:
+            - 留存资产
+            - 易塌点
+
+      - monetization:
+          name: "商业化路径"
+          models:
+            - 订阅
+            - 用量
+            - 席位
+            - 抽成
+            - 增值服务
+            - 带动主业务
+          required:
+            - 计费单位合理性
+            - 毛利压力点
+
+      - stress_test:
+          name: "抗压性测试"
+          required:
+            - 资源减半的保留清单
+            - 单一增长引擎选择
+
+      - moat_vs_wind:
+          name: "护城河 vs 阶段红利"
+          required:
+            - 不可复制优势（Top 3）
+            - 阶段红利/可复制部分（Top 3）
+            - 12-24个月成立前提
+
+      - avoid_paths:
+          name: "逆向建议"
+          required:
+            - 最危险的诱惑（1-3条）
+            - 死亡原因 + 预警信号
+
+    data_sources:
+      automatic:
+        - 产品定位（官网）
+        - 定价与商业化信息（官网/报道）
+        - 公开增长/留存线索（报道/访谈）
+        - 社交媒体与公告（更新/里程碑）
+        - 招聘信息（岗位/战略方向）
+      ai_analysis:
+        - 战略角色判断
+        - 增长/留存/商业化机制推断
+        - 护城河与风险判断
+      user_input:
+        - 目标用户与场景
+        - 关键指标（NSM/留存/转化）
+        - 观察到的现象与假设
+
+  P:
+    name: "Product（产品设计）"
+    name_cn: "产品设计"
+    priority: medium
+    sub_dimensions:
+      - user_flow:
+          name: "用户流程与关键路径"
+          metrics:
+            - 总步骤数
+            - 平均完成时间
+            - 流失点
+            - 优化机会
+
+      - aha_moment:
+          name: "Aha Moment设计"
+          elements:
+            - Aha时刻描述
+            - 触发条件
+            - 达成率
+            - 达成时间
+
+      - ttv:
+          name: "TTV（Time to Value）"
+          benchmarks:
+            excellent: "<5分钟"
+            good: "5-15分钟"
+            fair: "15-30分钟"
+            poor: ">30分钟"
+
+      - growth_mechanism:
+          name: "产品内增长机制"
+          types:
+            - 病毒分享
+            - 协作邀请
+            - 成果展示
+            - 社区驱动
+
+      - ai_features:
+          name: "AI特性分析"
+          levels:
+            low: "AI作为辅助功能"
+            medium: "AI是核心功能之一"
+            high: "AI是产品的全部"
+
+    data_sources:
+      automatic:
+        - 功能特性（官网、文档）
+        - 产品截图（官网、社交媒体）
+        - 用户评价（App Store、Product Hunt）
+        - 上手评测/测评视频
+      ai_analysis:
+        - 用户流程推断
+        - Aha Moment识别
+        - TTV估算
+      user_input:
+        - 实际使用体验
+        - 流程优化建议
+        - Aha时刻确认
+
+  E:
+    name: "Economics（商业模式）"
+    name_cn: "商业模式"
+    priority: high
+    sub_dimensions:
+      - business_model:
+          name: "商业模式类型"
+          types:
+            - freemium: "免费+付费"
+            - subscription: "订阅制"
+            - usage_based: "按量付费"
+            - license: "许可证/座位"
+            - performance_based: "按结果付费"
+            - project_based: "项目制"
+            - white_label: "API/OEM/白标"
+            - marketplace: "平台抽成"
+
+      - pricing:
+          name: "定价策略"
+          elements:
+            - 定价结构
+            - 价格锚点
+            - 定价心理学
+
+      - unit_economics:
+          name: "单位经济模型"
+          metrics:
+            - LTV: "客户生命周期价值"
+            - CAC: "获客成本"
+            - ltv_cac_ratio: "LTV/CAC比值（>3健康）"
+            - payback_period: "回收周期（<12月优秀）"
+            - gross_margin: "毛利率（>70%优秀）"
+
+      - conversion:
+          name: "付费转化路径"
+          funnel:
+            - 注册用户
+            - 激活用户
+            - 付费意愿
+            - 付费行为
+            - 续费用户
+
+      - viability:
+          name: "商业化成立评估"
+          criteria:
+            - 明确的付费决策者
+            - 绑定不可推迟的业务决策
+            - 7-30天内价值可感知
+            - 可规模复制交付
+            - 自然升级/复购路径
+          scoring:
+            excellent: "5分"
+            good: "4分"
+            fair: "3分"
+            poor: "<3分"
+
+      - future_trends:
+          name: "商业模式未来趋势"
+          timeframes:
+            - short_term: "6-12个月趋势"
+            - medium_term: "1-3年演进路径"
+            - long_term: "3-5年战略方向"
+          analysis_aspects:
+            - pricing_evolution:
+                name: "定价策略演进"
+                questions:
+                  - 当前定价是否可持续？
+                  - 竞争加剧后如何调整？
+                  - 价格战风险评估
+                  - 向上/向下定价空间
+                indicators:
+                  - 市场竞争度变化
+                  - 用户支付意愿趋势
+                  - 成本结构优化潜力
+                  - 差异化程度
+            - model_evolution:
+                name: "商业模式演进方向"
+                evolution_paths:
+                  - freemium_to_subscription: "Freemium → 纯订阅"
+                  - tool_to_platform: "单一工具 → 平台生态"
+                  - c2b_expansion: "C端 → B端扩展"
+                  - api_opening: "封闭 → API开放"
+                  - vertical_integration: "垂直整合"
+                trigger_conditions:
+                  - 用户规模达到临界点
+                  - 竞争格局变化
+                  - 技术突破
+                  - 监管政策变化
+            - revenue_diversification:
+                name: "营收流多元化"
+                potential_streams:
+                  - 广告变现
+                  - 数据服务
+                  - API授权
+                  - 企业定制
+                  - 培训服务
+                  - 生态抽成
+                viability_scoring:
+                  high: "与核心业务强协同"
+                  medium: "需要额外资源投入"
+                  low: "分散核心资源"
+            - market_dynamics:
+                name: "市场动态影响"
+                factors:
+                  - 竞争对手动向
+                  - 技术发展趋势（如AI模型成本下降）
+                  - 用户需求演变
+                  - 监管环境变化
+                  - 宏观经济影响
+            - risk_assessment:
+                name: "商业化风险评估"
+                risks:
+                  - 价格战风险
+                  - 大厂降维打击
+                  - 技术替代风险
+                  - 用户流失风险
+                  - 政策监管风险
+                mitigation_strategies:
+                  - 建立技术壁垒
+                  - 差异化定位
+                  - 用户锁定机制
+                  - 多元化营收
+                  - 合规预案
+
+    data_sources:
+      automatic:
+        - 定价信息（定价页面）
+        - 付费方案（官网、文档）
+        - 用户评价（价格反馈）
+        - 竞争定价对比（同类产品）
+      ai_analysis:
+        - 商业模式类型判断
+        - 单位经济模型推算
+        - 定价策略分析
+      user_input:
+        - 真实转化率数据
+        - CAC/LTV数据
+        - 付费用户反馈
+
+  L:
+    name: "Learning（洞察提炼）"
+    name_cn: "洞察提炼"
+    priority: medium
+    sub_dimensions:
+      - expert_insights:
+          name: "五位专家视角"
+          experts:
+            - yujun: "俞军（产品价值）"
+            - liangning: "梁宁（产品逻辑）"
+            - andrew_chen: "Andrew Chen（增长机制）"
+            - zengming: "曾鸣（智能商业）"
+            - lishangyou: "李善友（第一性原理）"
+
+      - investment_strategy:
+          name: "投研策略视角（VC）"
+          thesis:
+            - 投资结论与成立前提
+            - 价值驱动因子（市场增长/渗透率/ARPU/留存）
+            - 护城河与可持续性判断
+          capital_efficiency:
+            - 单位经济模型健康度（LTV/CAC、回收周期、毛利）
+            - 增长质量（增长来源、付费质量、留存结构）
+          risks_and_catalysts:
+            - 风险矩阵（技术/竞争/市场/监管/渠道）
+            - 催化剂与里程碑（产品/渠道/合作/融资）
+          scenario_projection:
+            - Base/Bull/Bear 情景假设
+            - 收入区间与估值区间推演
+            - 退出路径与可实现性
+
+      - pattern_recognition:
+          name: "可复用模式识别"
+          libraries:
+            - "81.90 增长模式库"
+            - "81.91 商业模式总结"
+            - "81.92 技术壁垒分析"
+
+      - first_principles:
+          name: "第一性原理分析"
+          questions:
+            - 解决的根本问题是什么？
+            - 回到基本真理，会得出什么？
+            - 打破了什么边界？
+
+      - comprehensive_insights:
+          name: "综合洞察"
+          output:
+            - Top 5核心洞察
+            - 可迁移模式
+            - 反模式警示
+
+    data_sources:
+      ai_generated:
+        - 五位专家分析（基于Prompt配置）
+        - 模式识别和提炼
+      user_input:
+        - 个人洞察
+        - 启发和学习
+
+# 分析配置
+analysis_modes:
+  standard:
+    name: "分析"
+    duration: "1-2小时"
+    dimensions: ["G", "O", "S", "C", "P", "E", "L"]
+    features:
+      - 模块化分析（可选维度）
+      - 可复用模式识别
+      - 模块库更新
+      - 证据清单与来源覆盖
+    output:
+      - 结构化报告
+      - 洞察提炼
+      - 模块库更新（81.94）
+      - 模式库更新（81.90/81.91/81.92）
+      - 资料来源清单（>=8条，>=5类）
+    automation_level: "70%"
+    use_cases:
+      - 竞品研究
+      - 学习对标
+      - 方法论沉淀
+
+# 数据完整度阈值
+data_quality:
+  excellent: ">80%"
+  good: "60-80%"
+  fair: "40-60%"
+  poor: "<40%"
+  minimum_to_proceed: 60  # 低于60%需警告用户
+
+# 评分标准
+scoring_standards:
+  pmf_level:
+    high: "强PMF，留存率高，用户主动推荐"
+    medium: "中等PMF，有一定留存，部分用户满意"
+    low: "弱PMF，留存率低，用户价值不明确"
+
+  ltv_cac_ratio:
+    excellent: ">3"
+    acceptable: "2-3"
+    unhealthy: "<2"
+
+  payback_period:
+    excellent: "<12个月"
+    good: "12-24个月"
+    poor: ">24个月"
+
+  gross_margin:
+    excellent: ">70%"
+    good: "50-70%"
+    needs_improvement: "<50%"
+
+# 模式识别配置
+pattern_recognition:
+  triggers:
+    - 增长飞轮类型相似度 > 80%
+    - 商业模式创新
+    - 独特的技术壁垒
+    - 可迁移的差异化策略
+
+  actions:
+    - 提取模式描述
+    - 检查模式库是否已存在
+    - 询问用户是否添加
+    - 更新知识库
+
+# 知识库路径配置
+knowledge_base:
+  main_documents: "80-89 项目·专题/81 AI产品研究/81.XX [产品名].md"
+  raw_materials: "81.93 竞品资料库/[产品名]/"
+  analysis_modules: "81.94 分析模块库/[维度]/"
+  growth_patterns: "81.90 增长模式库.md"
+  business_models: "81.91 商业模式总结.md"
+  tech_moats: "81.92 技术壁垒分析.md"

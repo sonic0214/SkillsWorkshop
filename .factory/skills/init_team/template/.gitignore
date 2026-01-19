@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.Python
+venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Project
+.checkpoints/*.json
+.context/*.json

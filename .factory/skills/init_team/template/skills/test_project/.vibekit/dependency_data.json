@@ -1,0 +1,190 @@
+{
+  "project_info": {
+    "project_path": "/Users/admin/Project/MyBrain/skills/init_team/template/skills/test_project",
+    "tech_stack": [
+      "Python"
+    ],
+    "modules": [
+      {
+        "name": "order",
+        "path": "order",
+        "type": "package"
+      },
+      {
+        "name": "database",
+        "path": "database",
+        "type": "package"
+      },
+      {
+        "name": "auth",
+        "path": "auth",
+        "type": "package"
+      },
+      {
+        "name": "payment",
+        "path": "payment",
+        "type": "package"
+      },
+      {
+        "name": "utils",
+        "path": "utils",
+        "type": "package"
+      },
+      {
+        "name": "user",
+        "path": "user",
+        "type": "package"
+      },
+      {
+        "name": "api",
+        "path": "api",
+        "type": "package"
+      },
+      {
+        "name": "permission",
+        "path": "permission",
+        "type": "package"
+      }
+    ],
+    "scan_time": "2025-12-09T08:54:49.828225"
+  },
+  "graph": {
+    "order": [
+      "database",
+      "payment",
+      "utils"
+    ],
+    "database": [],
+    "auth": [
+      "user",
+      "utils",
+      "permission"
+    ],
+    "payment": [
+      "order",
+      "utils"
+    ],
+    "utils": [],
+    "user": [
+      "database",
+      "utils",
+      "permission"
+    ],
+    "api": [
+      "user",
+      "order",
+      "utils",
+      "auth"
+    ],
+    "permission": [
+      "utils",
+      "auth"
+    ]
+  },
+  "cycles": [
+    {
+      "modules": [
+        "order",
+        "payment"
+      ],
+      "path": [
+        "payment",
+        "order",
+        "payment"
+      ],
+      "severity": "P0",
+      "size": 2
+    },
+    {
+      "modules": [
+        "auth",
+        "permission",
+        "user"
+      ],
+      "path": [
+        "user",
+        "permission",
+        "auth",
+        "user"
+      ],
+      "severity": "P0",
+      "size": 3
+    }
+  ],
+  "god_modules": [
+    {
+      "name": "utils",
+      "dependents_count": 6,
+      "dependents": [
+        "api",
+        "auth",
+        "order",
+        "payment",
+        "permission",
+        "user"
+      ],
+      "dependency_rate": 75.0,
+      "severity": "P1"
+    }
+  ],
+  "arch_violations": [
+    {
+      "type": "skip_layer",
+      "severity": "P0",
+      "from_module": "api",
+      "from_layer": "api",
+      "from_level": 4,
+      "to_module": "user",
+      "to_layer": "repository",
+      "to_level": 2,
+      "layer_diff": 2,
+      "skipped_layers": [
+        "service"
+      ]
+    },
+    {
+      "type": "skip_layer",
+      "severity": "P0",
+      "from_module": "api",
+      "from_layer": "api",
+      "from_level": 4,
+      "to_module": "order",
+      "to_layer": "repository",
+      "to_level": 2,
+      "layer_diff": 2,
+      "skipped_layers": [
+        "service"
+      ]
+    }
+  ],
+  "complexity": {
+    "total_functions": 41,
+    "avg_complexity": 1.6,
+    "avg_length": 5.0,
+    "high_complexity_functions": [
+      {
+        "name": "very_complex_function",
+        "module": "api",
+        "file": "api/complex_code.py",
+        "line": 7,
+        "complexity": 17,
+        "lines": 32,
+        "source": "def very_complex_function(data, mode, config):\n    \"\"\"高复杂度函数 - 包含大量分支\"\"\"\n    result = []\n\n    if mode == 'advanced':\n        for item in data:\n            if item.get('status') == 'active':\n                if item.get('priority') == 'high':\n                    if config.get('strict_mode'):\n                        if item.get('verified'):\n                            result.append(item)\n                        elif config.get('allow_unverified'):\n                            result.append(item)\n                    else:\n                        result.append(item)\n                elif item.get('priority') == 'medium':\n                    if config.get('include_medium'):\n                        result.append(item)\n                else:\n                    if config.get('include_low') and item.get('age') > 30:\n                        result.append(item)\n            elif item.get('status') == 'pending':\n                if config.get('include_pending'):\n                    result.append(item)\n    elif mode == 'simple':\n        for item in data:\n            if item.get('status') == 'active':\n                result.append(item)\n    else:\n        result = data\n\n    return result",
+        "hash": "cabee9b3"
+      }
+    ],
+    "long_functions": [
+      {
+        "name": "very_long_function",
+        "module": "api",
+        "file": "api/complex_code.py",
+        "line": 41,
+        "complexity": 2,
+        "lines": 80,
+        "source": "def very_long_function(user_id):\n    \"\"\"超长函数 - 超过 50 行\"\"\"\n    # Line 1\n    user = get_user(user_id)\n    # Line 2\n    # Line 3\n    if not user:\n        return None\n    # Line 4\n    # Line 5\n    # Line 6\n    profile = get_profile(user_id)\n    # Line 7\n    # Line 8\n    # Line 9\n    # Line 10\n    orders = get_orders(user_id)\n    # Line 11\n    # Line 12\n    # Line 13\n    # Line 14\n    # Line 15\n    payments = get_payments(user_id)\n    # Line 16\n    # Line 17\n    # Line 18\n    # Line 19\n    # Line 20\n    preferences = get_preferences(user_id)\n    # Line 21\n    # Line 22\n    # Line 23\n    # Line 24\n    # Line 25\n    history = get_history(user_id)\n    # Line 26\n    # Line 27\n    # Line 28\n    # Line 29\n    # Line 30\n    analytics = calculate_analytics(user_id)\n    # Line 31\n    # Line 32\n    # Line 33\n    # Line 34\n    # Line 35\n    recommendations = get_recommendations(user_id)\n    # Line 36\n    # Line 37\n    # Line 38\n    # Line 39\n    # Line 40\n    notifications = get_notifications(user_id)\n    # Line 41\n    # Line 42\n    # Line 43\n    # Line 44\n    # Line 45\n    stats = calculate_stats(user_id)\n    # Line 46\n    # Line 47\n    # Line 48\n    # Line 49\n    # Line 50\n    badges = get_badges(user_id)\n    # Line 51\n    # Line 52\n    return {\n        'user': user,\n        'profile': profile,\n        'orders': orders,\n        'payments': payments,\n        'preferences': preferences,\n        'history': history,\n        'analytics': analytics,\n        'recommendations': recommendations,\n        'notifications': notifications,\n        'stats': stats,\n        'badges': badges\n    }",
+        "hash": "c16c7ba4"
+      }
+    ],
+    "duplicates": []
+  }
+}

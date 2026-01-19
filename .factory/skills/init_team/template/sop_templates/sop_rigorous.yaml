@@ -1,0 +1,185 @@
+# Project SOP - Rigorous Mode
+
+version: "6.0.0"
+mode: "rigorous"
+description: "严格质量控制模式，适合关键业务和生产环境"
+
+# 适用场景
+suitable_for:
+  - "生产环境关键系统"
+  - "大型项目（> 15 个功能）"
+  - "3+ 人团队协作"
+  - "高可用性要求（99.9%+）"
+  - "金融、医疗等关键领域"
+
+phases:
+  - id: specify
+    name: Requirements
+    agent_mode: pm_mode
+    interaction_mode: interactive
+    min_clarification_questions: 10  # 更多澄清问题
+    min_confirmation_rounds: 5       # 更多确认轮次
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    # 更严格的文档要求
+    mandatory_docs:
+      - "docs/01_specify/prd.md"
+      - "docs/01_specify/user_stories.md"
+      - "docs/01_specify/api_spec.md"
+      - "docs/01_specify/risk_assessment.md"        # 新增：风险评估
+      - "docs/01_specify/security_requirements.md"  # 新增：安全需求
+
+  - id: plan
+    name: Architecture
+    agent_mode: architect_mode
+    interaction_mode: progressive
+    default_tech_stack:
+      frontend: "Next.js + Tailwind CSS"
+      backend: "FastAPI (Python)"
+      database: "PostgreSQL"
+      deployment: "Docker + Kubernetes"  # 升级到 K8s
+    design_iterations: 5              # 更多迭代
+    skills_to_call:
+      - skills/build_main_index.py
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    # 更严格的文档要求
+    mandatory_docs:
+      - "docs/02_plan/architecture.md"
+      - "docs/02_plan/module_design.md"
+      - "docs/02_plan/database_design.md"
+      - "docs/02_plan/api_design.md"
+      - "docs/02_plan/security_design.md"     # 新增：安全架构
+      - "docs/02_plan/scalability_plan.md"    # 新增：扩展性方案
+      - "docs/02_plan/disaster_recovery.md"   # 新增：灾备方案
+
+  - id: implement
+    name: Implementation
+    agent_mode: dev_mode
+    interaction_mode: automated
+    tdd_required: true
+    code_coverage_threshold: 90       # 更高覆盖率要求
+    code_review_required: true        # 新增：强制代码审查
+    auto_fix_max_retries: 5           # 更多重试次数
+    auto_rollback_on_failure: true
+    skills_to_call:
+      - skills/run_tdd_cycle.py
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    mandatory_docs:
+      - "docs/03_implement/task_breakdown.md"
+      - "docs/03_implement/progress_track.md"
+      - "docs/03_implement/code_review_log.md"  # 新增：代码审查记录
+
+  - id: test
+    name: Testing
+    agent_mode: qa_mode
+    interaction_mode: automated
+    test_required: true
+    integration_test_required: true       # 新增：强制集成测试
+    performance_test_required: true       # 新增：强制性能测试
+    security_test_required: true          # 新增：强制安全测试
+    auto_fix_max_retries: 5
+    auto_rollback_on_failure: true
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    mandatory_docs:
+      - "docs/04_test/test_plan.md"
+      - "docs/04_test/test_cases.md"
+      - "docs/04_test/quality_report.md"
+      - "docs/04_test/performance_report.md"    # 新增：性能测试报告
+      - "docs/04_test/security_audit.md"        # 新增：安全审计报告
+
+  - id: release
+    name: Release
+    agent_mode: architect_mode
+    checkpoint_on_complete: true
+    council_review_prompt: true         # Rigorous 模式在 Release 也需要 Review
+
+    mandatory_docs:
+      - "docs/05_release/release_notes.md"
+      - "docs/05_release/deployment.md"
+      - "docs/05_release/runbook.md"           # 新增：运维手册
+      - "docs/05_release/rollback_plan.md"     # 新增：回滚方案
+      - "docs/05_release/monitoring_setup.md"  # 新增：监控配置
+
+# v6.0 智囊团配置
+council:
+  enabled: true
+  members:
+    - name: "Elon Musk"
+      expertise: "First Principles, Innovation, MVP"
+    - name: "Martin Fowler"
+      expertise: "Software Architecture, Refactoring"
+    - name: "Charlie Munger"
+      expertise: "Mental Models, Risk Assessment"
+
+  # v6.0 新增：更激进的自动触发规则
+  auto_trigger_rules:
+    - condition: "architecture_complexity > 0.5"  # 更低阈值
+      experts: ["Martin Fowler", "Elon Musk"]
+    - condition: "test_failure_count > 2"          # 更低阈值
+      experts: ["Martin Fowler", "Charlie Munger"]
+    - condition: "api_endpoint_count > 15"
+      experts: ["Martin Fowler"]
+    - condition: "database_table_count > 8"
+      experts: ["Martin Fowler"]
+    - condition: "security_risk_level == high"
+      experts: ["Charlie Munger", "Martin Fowler"]
+    - condition: "user_marked_critical == true"
+      experts: ["Elon Musk", "Martin Fowler", "Charlie Munger"]
+
+  review_trigger: "auto_or_ask"  # 自动触发或询问用户
+  review_recording: ".context/council_reviews/"
+
+# 质量标准（最严格）
+quality_standards:
+  documentation: "comprehensive"
+  test_coverage: 90
+  code_review: true
+  security_audit: true
+  performance_benchmark: true
+
+# v6.0 超时配置（更长的等待时间）
+timeout_config:
+  minor_decision: 10min
+  major_decision: 1hour
+  critical_decision: 4hours
+
+  default_behaviors:
+    council_review: "trigger"        # 默认触发智囊团
+    design_confirmation: "wait"      # 等待用户确认（不采用默认方案）
+    test_failure: "notify_and_wait"  # 通知并等待（不自动修复）
+
+# 额外约束
+additional_constraints:
+  - "每个 API 端点必须有完整的文档和测试"
+  - "数据库 migration 必须可回滚"
+  - "所有敏感数据必须加密"
+  - "必须配置监控和告警"
+  - "必须有灾备恢复演练记录"
+
+# 说明
+notes: |
+  Rigorous 模式适合对质量和可靠性有严格要求的项目。
+
+  特点：
+  - 90% 测试覆盖率
+  - 强制代码审查
+  - 强制性能测试和安全审计
+  - 智囊团自动触发（阈值更低）
+  - 完整的运维文档（runbook、监控、灾备）
+
+  警告：
+  - 开发周期会显著延长（约 1.5-2 倍）
+  - 文档工作量大
+  - 适合关键业务，不适合快速验证
+
+  降级到 Standard 模式的时机：
+  - 项目进入维护期
+  - 团队缩减
+  - 快速迭代需求增加

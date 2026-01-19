@@ -1,0 +1,458 @@
+# 竞品分析配置文件
+# Version: v1.0
+# Created: 2025-12-19
+
+# ==================== 增量更新配置 ====================
+
+incremental_update:
+  enabled: true
+
+  # 触发条件
+  triggers:
+    keywords:
+      - "更新"
+      - "最新数据"
+      - "补充信息"
+    patterns:
+      - "更新 [产品名] 的最新数据"
+      - "更新 [产品名]"
+
+  # 检测变化
+  change_detection:
+    dimensions:
+      - 用户规模
+      - 新功能发布
+      - 定价调整
+      - 融资消息
+      - 战略转型
+
+    thresholds:
+      user_growth: ">10%"  # 用户增长>10%触发更新
+      feature_major: "重大功能"  # 重大功能发布触发更新
+      pricing_change: "任何定价变化"
+
+  # 更新策略
+  update_strategy:
+    mode: "selective"  # full | selective
+
+    selective:
+      description: "仅更新有变化的维度"
+      benefits:
+        - 节省时间
+        - 保留历史洞察
+      process:
+        - 对比新旧数据
+        - 标记变化项
+        - 询问用户确认
+        - 更新相关维度
+        - 添加更新记录
+
+    full:
+      description: "完全重新分析"
+      use_cases:
+        - 产品重大转型
+        - 上次分析过于陈旧（>6个月）
+
+  # 更新记录
+  update_log:
+    enabled: true
+    format: |
+      ### {date} 更新
+      **更新类型**：{update_type}
+      **更新维度**：{dimensions}
+
+      **主要变化**：
+      1. {change_1}
+      2. {change_2}
+      ...
+
+      **影响评估**：
+      {impact_analysis}
+
+      **对标启发**：
+      {insights}
+
+# ==================== 自动化数据采集配置 ====================
+
+data_collection:
+  automation_level: "90%"
+
+  # 数据源优先级
+  data_sources:
+    tier1:  # 优先级最高，可靠性最强
+      - 官方网站
+      - 官方定价页面
+      - 官方博客/发布记录
+      - 官方开发者文档/API 文档
+      - 官方帮助中心/FAQ
+      - 官方条款/隐私/合规说明
+
+    tier2:  # 可靠，但可能有延迟
+      - Crunchbase（融资）
+      - PitchBook（融资）
+      - CB Insights（融资/行业）
+      - Tracxn（融资/竞品）
+      - Product Hunt（用户评价）
+      - SimilarWeb（流量数据）
+      - SEMrush（流量数据）
+      - Ahrefs（流量/关键词）
+      - HypeStat（流量数据）
+      - Google Trends（需求热度）
+      - App Store（口碑）
+      - Google Play（口碑）
+      - Trustpilot（口碑）
+      - G2（口碑）
+      - Capterra（口碑）
+      - GetApp（口碑）
+      - TrustRadius（口碑）
+      - Software Advice（口碑）
+      - PeerSpot（口碑）
+      - data.ai（App 数据）
+      - Sensor Tower（App 数据）
+      - Appfigures（App 数据）
+      - Apptopia（App 数据）
+      - LinkedIn（团队/公司信息）
+      - Owler（竞品与概览）
+      - BuiltWith（技术栈）
+      - Wappalyzer（技术栈）
+      - StackShare（技术栈）
+      - 媒体评测/行业报告
+      - Statista（行业报告）
+      - MarketsandMarkets（行业报告）
+      - Mordor Intelligence（行业报告）
+      - Fortune Business Insights（行业报告）
+      - GII Research（行业报告）
+      - market.us（行业报告）
+      - The Business Research Company（行业报告）
+      - Wondertools/Substack（工具评测）
+      - Futurepedia（工具评测）
+      - Toolify（工具目录/流量/标签）
+      - World Bank（宏观数据）
+
+    tier3:  # 参考性质
+      - 新闻报道
+      - PRNewswire（新闻稿）
+      - TechCrunch（新闻报道）
+      - Business Wire（新闻稿）
+      - The New York Times（新闻报道）
+      - A16Z（投资/市场洞察）
+      - Sequoia Capital（投资/市场洞察）
+      - Google News（新闻聚合）
+      - Hacker News（社区讨论）
+      - Reddit讨论
+      - Twitter提及
+      - 行业报告
+      - 竞品对比博客/文章（如 Daglo 等）
+
+  # 搜索查询模板
+  search_templates:
+    official_website: "{product_name} official website"
+    about: "{product_name} about"
+    pricing: "{product_name} pricing"
+    fees: "{product_name} fees"
+    commission: "{product_name} commission"
+    spread: "{product_name} spread"
+    app_store: "{product_name} app store"
+    google_play: "{product_name} google play"
+    data_ai: "{product_name} data.ai"
+    sensor_tower: "{product_name} Sensor Tower"
+    appfigures: "{product_name} Appfigures"
+    apptopia: "{product_name} Apptopia"
+    funding: "{product_name} funding crunchbase"
+    pitchbook: "{product_name} PitchBook funding"
+    cbinsights: "{product_name} CB Insights funding"
+    tracxn: "{product_name} Tracxn"
+    team: "{product_name} team"
+    linkedin: "{product_name} LinkedIn company"
+    users: "{product_name} users statistics"
+    reviews: "{product_name} app reviews"
+    product_hunt: "{product_name} product hunt"
+    g2: "{product_name} G2 reviews"
+    capterra: "{product_name} Capterra reviews"
+    trustpilot: "{product_name} Trustpilot reviews"
+    getapp: "{product_name} GetApp reviews"
+    trustradius: "{product_name} TrustRadius reviews"
+    software_advice: "{product_name} Software Advice reviews"
+    peerspot: "{product_name} PeerSpot reviews"
+    competitors: "{product_name} competitors"
+    alternatives: "{product_name} alternatives"
+    owler: "{product_name} Owler competitors"
+    builtwith: "{product_name} BuiltWith"
+    wappalyzer: "{product_name} Wappalyzer"
+    stackshare: "{product_name} StackShare"
+    regulatory: "{product_name} regulator license"
+    terms: "{product_name} terms of service"
+    privacy: "{product_name} privacy policy"
+    help_center: "{product_name} help center"
+    press: "{product_name} press release"
+    blog: "{product_name} blog"
+    news: "{product_name} news"
+    reddit: "{product_name} reddit"
+    twitter: "{product_name} twitter"
+    youtube: "{product_name} review"
+    market_size: "{product_name} market size"
+    tam_sam_som: "{product_name} TAM SAM SOM"
+    industry_report: "{product_name} industry report"
+    market_growth: "{product_name} market growth rate"
+    marketsandmarkets: "{product_name} marketsandmarkets market size"
+    mordor: "{product_name} mordor intelligence market size"
+    fortune_business_insights: "{product_name} fortune business insights market size"
+    giiresearch: "{product_name} GII Research market size"
+    market_us: "{product_name} market.us market size"
+    prnewswire: "{product_name} PRNewswire market size"
+    business_wire: "{product_name} Business Wire"
+    nytimes: "{product_name} site:nytimes.com"
+    a16z: "{product_name} a16z"
+    sequoia: "{product_name} Sequoia Capital"
+    semrush: "{product_name} SEMrush traffic"
+    ahrefs: "{product_name} Ahrefs traffic"
+    google_news: "{product_name} site:news.google.com"
+    hacker_news: "{product_name} site:news.ycombinator.com"
+    tool_reviews: "{product_name} site:substack.com review"
+    competitor_comparison_blog: "{product_name} competitors comparison blog"
+    google_trends: "{product_name} Google Trends"
+    statista: "{product_name} Statista market size"
+
+  # 结构化数据源模板（可选，优先于搜索）
+  source_url_templates:
+    app_store: "https://apps.apple.com/app/{app_id}"
+    google_play: "https://play.google.com/store/apps/details?id={package}&hl=en&gl=US"
+    trustpilot: "https://www.trustpilot.com/review/{domain}"
+    product_hunt: "https://www.producthunt.com/products/{product_slug}"
+    g2: "https://www.g2.com/products/{product_slug}/reviews"
+    capterra: "https://www.capterra.com/p/{product_id}/{product_slug}/reviews/"
+    business_wire: "https://www.businesswire.com/portal/site/home/search/?searchTerm={product_name}"
+    nytimes: "https://www.nytimes.com/search?query={product_name}"
+    a16z: "https://a16z.com/?s={product_name}"
+    sequoia: "https://www.sequoiacap.com/?q={product_name}"
+    google_news: "https://news.google.com/search?q={product_name}"
+    hacker_news: "https://hn.algolia.com/?q={product_name}"
+    semrush: "https://www.semrush.com/analytics/traffic/overview/?q={domain}"
+    builtwith: "https://builtwith.com/{domain}"
+    wappalyzer: "https://www.wappalyzer.com/lookup/{domain}/"
+    stackshare: "https://stackshare.io/{product_slug}"
+    google_trends: "https://trends.google.com/trends/explore?q={product_name}"
+    statista: "https://www.statista.com/search/?q={product_name}"
+
+  # 已知产品的数据源直连（便于复用）
+  source_url_overrides:
+    Canva:
+      app_store: "https://apps.apple.com/app/canva/id897446215"
+      google_play: "https://play.google.com/store/apps/details?id=com.canva.editor&hl=en&gl=US"
+      trustpilot: "https://www.trustpilot.com/review/www.canva.com"
+      product_hunt: "https://www.producthunt.com/products/canva"
+      g2: "https://www.g2.com/products/canva/reviews"
+      capterra: "https://www.capterra.com/p/129674/Canva/reviews/"
+    Jasper:
+      official_website: "https://www.jasper.ai"
+      pricing: "https://www.jasper.ai/pricing"
+      about: "https://www.jasper.ai/company"
+      terms: "https://www.jasper.ai/legal/terms"
+      privacy: "https://www.jasper.ai/legal/privacy"
+      help_center: "https://help.jasper.ai/hc/en-us"
+      blog_funding: "https://www.jasper.ai/blog/jasper-announces-125m-series-a-funding"
+      techcrunch_funding: "https://techcrunch.com/2022/10/18/ai-content-platform-jasper-raises-125m-at-a-1-7b-valuation/"
+      prnewswire_market: "https://www.prnewswire.com/news-releases/marketing-automation-market-worth-81-01-billion-by-2030--exclusive-report-by-marketsandmarkets-302502122.html"
+      tbrc_market: "https://www.thebusinessresearchcompany.com/report/content-marketing-software-global-market-report"
+
+  # 数据保存
+  save_strategy:
+    raw_data: "81.93 竞品资料库/{product_name}/raw_data_{date}.json"
+    processed_data: "81.93 竞品资料库/{product_name}/"
+
+    files:
+      - official_website.md
+      - pricing_page.md
+      - news_articles.md
+      - user_reviews.md
+      - user_provided/  # 用户手动提供的资料
+
+  # 质量检查
+  quality_check:
+    minimum_data_completeness: 60  # 最低60%
+
+    critical_data:  # 必须有的数据
+      - 官网URL
+      - 产品描述
+      - 商业模式类型
+
+    optional_data:  # 可选数据
+      - 用户规模
+      - 融资信息
+      - 留存率
+      - 转化率
+
+# ==================== 专家洞察配置 ====================
+
+expert_insights:
+  enabled: true
+
+  # 专家召集顺序
+  召集顺序:
+    - yujun: "俞军（产品价值） - 建立价值判断基础"
+    - liangning: "梁宁（产品逻辑） - 理解底层逻辑"
+    - andrew_chen: "Andrew Chen（增长机制） - 分析增长引擎"
+    - zengming: "曾鸣（智能商业） - 评估AI特性"
+    - lishangyou: "李善友（第一性原理） - 提炼本质洞察"
+
+  # 专家配置文件
+  config_file: "config/ai_expert_prompts.yaml"
+
+  # 输出要求
+  output_requirements:
+    format: "结构化markdown"
+    length: "500-800字/专家"
+    includes:
+      - 核心观点
+      - 详细分析
+      - 机会判断
+      - 对标建议
+
+# ==================== 模式识别配置 ====================
+
+pattern_recognition:
+  enabled: true
+
+  # 识别触发
+  triggers:
+    similarity_threshold: 0.8  # 相似度>80%触发
+    innovation_score: ">7"  # 创新度>7触发
+
+  # 模式类型
+  pattern_types:
+    growth_patterns:
+      库位置: "81.90 增长模式库.md"
+      识别维度:
+        - 增长飞轮类型
+        - AARRR策略
+        - K因子设计
+        - PLG/CLG机制
+
+    business_models:
+      库位置: "81.91 商业模式总结.md"
+      识别维度:
+        - 商业模式变体
+        - 定价策略
+        - 转化路径设计
+
+    tech_moats:
+      库位置: "81.92 技术壁垒分析.md"
+      识别维度:
+        - 技术护城河类型
+        - 壁垒深度
+        - 可持续性
+
+  # 识别流程
+  workflow:
+    step1:
+      name: "模式提取"
+      action: "从分析中提取潜在模式"
+
+    step2:
+      name: "去重检查"
+      action: "检查模式库是否已存在"
+
+    step3:
+      name: "用户确认"
+      action: "询问用户是否添加到库"
+
+    step4:
+      name: "更新知识库"
+      action: "添加模式到对应库"
+
+# ==================== 错误处理配置 ====================
+
+error_handling:
+
+  # 数据采集失败
+  collection_failure:
+    threshold: "<40% completeness"
+    actions:
+      - 显示已采集数据
+      - 显示失败项
+      - 询问是否继续（基于部分数据）
+      - 建议手动补充
+
+  # 分析质量低
+  low_quality:
+    threshold: "quality_score < 6"
+    actions:
+      - 显示质量评分
+      - 显示可能原因
+      - 显示改进建议
+      - 询问是否重试
+
+  # 文件冲突
+  file_conflict:
+    actions:
+      - 显示冲突文件路径
+      - 提供选项：
+        - 增量更新
+        - 重命名新文件
+        - 覆盖（需确认）
+
+  # Token不足
+  token_limit:
+    threshold: ">80% usage"
+    actions:
+      - 启动节能模式
+      - 仅处理前N个文件
+      - 跳过大文件（>100KB）
+      - 使用轻量分类规则
+
+# ==================== 输出格式配置 ====================
+
+output_formatting:
+
+  # 文档编号规则
+  numbering:
+    format: "81.{XX} {产品名}.md"
+    auto_increment: true
+    start_from: 10
+
+  # 元数据
+  metadata:
+    required:
+      - 创建时间
+      - 分析模块
+      - 分析师
+      - 官网
+    optional:
+      - 标签
+      - 最后更新
+      - 数据来源
+      - 相关链接
+
+  # 文档结构
+  document_structure:
+    analysis:
+      - 一句话总结
+      - Part G（增长系统）
+      - Part O（市场机会）
+      - Part S（战略定位）
+      - Part C（竞品分析）
+      - Part P（产品设计）
+      - Part E（商业模式）
+      - Part L（洞察提炼）
+        - 综合洞察
+        - 战略动作与验证
+      - 可复用模式识别
+      - 数据来源
+      - 相关链接
+
+# ==================== 使用建议配置 ====================
+
+usage_recommendations:
+
+  # 首次使用
+  first_time:
+    - 从核心模块开始（如增长系统/商业模式）
+    - 选择熟悉的产品（如ChatGPT）
+    - 对比AI生成的分析与实际理解
+
+  # 质量保障
+  quality:
+    - 关键数据需要验证
+    - 专家洞察需要理解（不盲目接受）
+    - 定期回顾已分析产品
+    - 验证预测准确性

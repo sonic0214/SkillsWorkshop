@@ -1,0 +1,142 @@
+# Project SOP - Standard Mode
+
+version: "6.0.0"
+mode: "standard"
+description: "标准开发流程，适合大多数项目"
+
+# 适用场景
+suitable_for:
+  - "中小型 Web 应用（5-15 个功能）"
+  - "标准 CRUD 项目"
+  - "1-2 人团队开发"
+  - "常规业务系统"
+
+phases:
+  - id: specify
+    name: Requirements
+    agent_mode: pm_mode
+    interaction_mode: interactive
+    min_clarification_questions: 5
+    min_confirmation_rounds: 3
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    mandatory_docs:
+      - "docs/01_specify/prd.md"
+      - "docs/01_specify/user_stories.md"
+    optional_docs:
+      - "docs/01_specify/api_spec.md"
+
+  - id: plan
+    name: Architecture
+    agent_mode: architect_mode
+    interaction_mode: progressive
+    default_tech_stack:
+      frontend: "Next.js + Tailwind CSS"
+      backend: "FastAPI (Python)"
+      database: "PostgreSQL"
+      deployment: "Docker"
+    design_iterations: 3
+    skills_to_call:
+      - skills/build_main_index.py
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    mandatory_docs:
+      - "docs/02_plan/architecture.md"
+      - "docs/02_plan/module_design.md"
+      - "docs/02_plan/database_design.md"
+
+  - id: implement
+    name: Implementation
+    agent_mode: dev_mode
+    interaction_mode: automated
+    tdd_required: true
+    code_coverage_threshold: 80
+    auto_fix_max_retries: 3
+    auto_rollback_on_failure: true
+    skills_to_call:
+      - skills/run_tdd_cycle.py
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    mandatory_docs:
+      - "docs/03_implement/task_breakdown.md"
+      - "docs/03_implement/progress_track.md"
+
+  - id: test
+    name: Testing
+    agent_mode: qa_mode
+    interaction_mode: automated
+    test_required: true
+    auto_fix_max_retries: 3
+    auto_rollback_on_failure: true
+    checkpoint_on_complete: true
+    council_review_prompt: true
+
+    mandatory_docs:
+      - "docs/04_test/test_plan.md"
+      - "docs/04_test/quality_report.md"
+
+  - id: release
+    name: Release
+    agent_mode: architect_mode
+    checkpoint_on_complete: true
+    council_review_prompt: false
+
+    mandatory_docs:
+      - "docs/05_release/release_notes.md"
+      - "docs/05_release/deployment.md"
+
+# v6.0 新增：智囊团配置
+council:
+  enabled: true
+  members:
+    - name: "Elon Musk"
+      expertise: "First Principles, Innovation, MVP"
+    - name: "Martin Fowler"
+      expertise: "Software Architecture, Refactoring"
+    - name: "Charlie Munger"
+      expertise: "Mental Models, Risk Assessment"
+
+  # v6.0 新增：自动触发规则
+  auto_trigger_rules:
+    - condition: "architecture_complexity > 0.6"
+      experts: ["Martin Fowler"]
+    - condition: "test_failure_count > 3"
+      experts: ["Martin Fowler", "Charlie Munger"]
+
+  review_trigger: "ask_user"  # 默认询问用户
+  review_recording: ".context/council_reviews/"
+
+# 质量标准
+quality_standards:
+  documentation: "standard"
+  test_coverage: 80
+  code_review: false
+
+# v6.0 新增：超时配置
+timeout_config:
+  minor_decision: 5min      # 次要决策（智囊团）
+  major_decision: 30min     # 重要决策（架构确认）
+  critical_decision: 2hours # 关键决策（测试失败）
+
+  default_behaviors:
+    council_review: "skip"       # 跳过智囊团
+    design_confirmation: "adopt" # 采用当前方案
+    test_failure: "auto_fix"     # 自动修复
+
+# 说明
+notes: |
+  Standard 模式是推荐的默认模式，平衡了质量和效率。
+
+  特点：
+  - 强制 TDD，确保代码质量
+  - 80% 测试覆盖率要求
+  - 渐进式架构设计（3 个版本）
+  - 智囊团 Review 可选（默认询问用户）
+
+  升级到 Rigorous 模式的时机：
+  - 项目进入生产环境
+  - 团队扩展到 3+ 人
+  - 关键业务系统
