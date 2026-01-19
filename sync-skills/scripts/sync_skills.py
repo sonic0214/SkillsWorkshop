@@ -129,25 +129,7 @@ def _discover_factory_skills_dirs_from_cwd(cwd: Path) -> list[Path]:
     return out
 
 
-def _discover_claude_codex_base(explicit: str | None, cwd: Path) -> Path | None:
-    if explicit:
-        p = Path(explicit).expanduser().resolve()
-        return p if p.is_dir() else None
-
-    candidates = [
-        cwd / "claude" / "codex",
-        Path.home() / "claude" / "codex",
-        Path.home() / "Project" / "claude" / "codex",
-        Path.home() / "Projects" / "claude" / "codex",
-        Path.home() / "src" / "claude" / "codex",
-    ]
-    for c in candidates:
-        if c.is_dir():
-            return c.resolve()
-    return None
-
-
-def _discover_default_roots(cwd: Path, claude_codex: str | None) -> list[Path]:
+def _discover_default_roots(cwd: Path) -> list[Path]:
     roots: list[Path] = []
 
     home_factory = Path.home() / ".factory" / "skills"
@@ -157,12 +139,6 @@ def _discover_default_roots(cwd: Path, claude_codex: str | None) -> list[Path]:
 
     claude_skills = Path.home() / ".claude" / "skills"
     roots.append(claude_skills.resolve())
-
-    claude_base = _discover_claude_codex_base(claude_codex, cwd)
-    if claude_base:
-        candidate = claude_base / ".factory" / "skills"
-        if candidate.is_dir():
-            roots.append(candidate.resolve())
 
     codex_skills = _codex_home() / "skills"
     roots.append(codex_skills.resolve())
@@ -257,7 +233,6 @@ def main() -> int:
     )
     ap.add_argument("--apply", action="store_true", help="Apply sync (overwrites destinations).")
     ap.add_argument("--prefer", default=None, help="Conflict resolution: newest (default).")
-    ap.add_argument("--claude-codex", default=None, help="Path to claude/codex base directory.")
     ap.add_argument(
         "--include-repo",
         action="store_true",
@@ -281,7 +256,7 @@ def main() -> int:
         if isinstance(cfg_roots, list) and cfg_roots:
             roots = _normalize_roots([str(x) for x in cfg_roots])
         else:
-            roots = _discover_default_roots(cwd, args.claude_codex)
+            roots = _discover_default_roots(cwd)
 
     if args.include_repo:
         repo_base = Path(args.repo_root).expanduser().resolve() if args.repo_root else cwd

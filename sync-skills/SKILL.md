@@ -1,6 +1,6 @@
 ---
 name: sync-skills
-description: Diff and synchronize skill folders across multiple locations (typically `.factory/skills`, `claude/codex/.factory/skills`, and `~/.codex/skills` / `$CODEX_HOME/skills`) so every location has the same full set and identical contents. Use when the user says “同步skill/同步skills”, “sync skills”, “把skills同步到各个地方”, or asks to compare/merge skills directories.
+description: Diff and synchronize skill folders across multiple locations (typically `.factory/skills`, `~/.claude/skills`, and `~/.codex/skills` / `$CODEX_HOME/skills`) so every location has the same full set and identical contents. Use when the user says “同步skill/同步skills”, “sync skills”, “把skills同步到各个地方”, or asks to compare/merge skills directories.
 ---
 
 # Sync Skills
@@ -21,7 +21,6 @@ description: Diff and synchronize skill folders across multiple locations (typic
 - `~/.factory/skills`（Factory 的 skills 主目录；推荐使用这个）
 - 当前目录及其父目录中的 `.factory/skills`
 - `~/.claude/skills`（Claude 的 skills）
-- `claude/codex/.factory/skills`（在常见路径中搜索；也可用 `--claude-codex /path/to/claude/codex` 指定）
 - `~/.codex/skills`（或 `$CODEX_HOME/skills`）
 
 如需显式指定根目录，用 `--roots /a/b/.factory/skills /c/d/skills`。
@@ -40,7 +39,7 @@ description: Diff and synchronize skill folders across multiple locations (typic
 
 ```json
 {
-  "roots": ["/abs/path/to/.factory/skills", "/abs/path/to/claude/codex/.factory/skills", "/Users/me/.codex/skills"],
+  "roots": ["/abs/path/to/.factory/skills", "/Users/me/.codex/skills"],
   "prefer": "newest"
 }
 ```
